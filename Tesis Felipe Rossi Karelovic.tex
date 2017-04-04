@@ -1535,14 +1535,18 @@ Se ingresan los datos necesarios, que para el primer caso corresponde a una matr
 
 \begin{itemize}
 	\item Amplitud de campo = 1. $[N \cdotp C^{-1}]$
-	\item Frecuencia = 5,5 $[GHz]$
-	\item Permeabilidad matriz contenedora = $1.$
-	\item Permitividad de la matriz = $12$
-	\item Permeabilidad hilo = -5.763+6.665j
-	\item Permitividad hilo = 47871.53 -264695.2595j
+	\item Frecuencia = 1 a 5 $[GHz]$,
 \end{itemize}
+\noindent con los valores:
 
-Una vez utilizado el código se obtiene:
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{datos1.png}\\
+	\caption{Datos de entrada para el primer caso de estudio.}
+	\label{fig:datos1}
+\end{figure} 
+
+
+Cuando se utiliza el código una vez,para una sola frecuencia, se obtiene algo de la forma:
 
 \begin{lstlisting}
 Numero de onda exterior: 0.000115270253615
@@ -1556,68 +1560,106 @@ Longitud de onda: 54508.2977624 micras
 Shape of matrix: (33586, 33586)
 El sistema fue resuelto en 153 iteraciones
 Valor del campo en receptor: [ 0,47456856 + 1,13788863j]
-
 \end{lstlisting}
 
-Como se puede ver, el valor del campo obtenido es de  0,47456856 + 1,13788863j $[N \cdot C^{-1}]$. Este valor corresponde al campo medido a 1 $[cm]$ del compósito, con 3 hilos dentro de la matriz, y tomando cada componente por separado, utilizando las ya obtenidas anteriormente propiedades de los hilos.
+Ahora, si se realiza lo mismo para todas, se tendrán valores para las demás frecuencias de la forma:
 
-El siguiente paso es comprobar que esto es cierto. Para eso, se procede a utilizar los valores de permitividad y permeabilidad efectivas para el compósito, pensando que éste es el compósito con hilos. Luego, se irradiará el campo nuevamente, y se comparará la respuesta obtenida con el caso anterior con hilos.
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{salida1.png}\\
+	\caption{Datos de salida para el caso de estudio número 1.}
+	\label{fig:salida1}
+\end{figure} 
 
-Ahora los datos de entrada son:
 
-\begin{itemize}
-	\item Amplitud de campo = 1. $[N \cdotp C^{-1}]$
-	\item Frecuencia = 5,5 $[GHz]$
-	\item Permeabilidad efectiva = $2-1j$
-	\item Permitividad efectiva = $0-5j$
-\end{itemize}
+Estos valores corresponden al campo medido a 1 $[cm]$ del compósito, con 3 hilos dentro de la matriz, y tomando cada componente por separado, utilizando las ya obtenidas anteriormente propiedades de los hilos.
 
-\noindent y se debe tener cuidado con quitar los hilos de la prueba.
+Como se explicó, la idea es compara el campo obtenido con hilos con el campo efectivo, para ver su semejanza. A continuación se presentan los gráficos comparativos del caso:
 
-Una vez finalizado el código, se entregan los resultados:
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1a.png}\\
+	\caption{Parte real del campo medido.}
+	\label{fig:r1a}
+\end{figure} 
 
-\begin{lstlisting}
-Numero de onda exterior: 0.000115270253615
-Indice de refraccion matriz: (1.75788792127-2.84432240503j)
-Indice de refraccion conductor: (1388.95385172+663.989853106j)
-Numero de onda interior matriz: (0.000202632186511-0.00032786576499j)
-Numero de onda interior conductor: (0.499146297071-0.320844701373j)
-Indice de transmision matriz: (2-1j)
-Indice de transmision conductor: (-3.6382+1.5134j)
-Longitud de onda: 54508.2977624 micras
-Shape of matrix: (16776, 16776)
-El sistema fue resuelto en 15 iteraciones
-Valor del campo en receptor: [ 0.4709458 + 0.71906953j]
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1b.png}\\
+	\caption{Parte imaginaria del campo medido.}
+	\label{fig:r1b}
+\end{figure} 
 
-\end{lstlisting}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1c.png}\\
+	\caption{Variación porcentual de la parte real.}
+	\label{fig:r1c}
+\end{figure} 
 
-\noindent donde se puede ver que el campo resultante es muy similar al obtenido con 3 hilos y las propiedades por separado. 
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1d.png}\\
+	\caption{Variación porcentual de la parte imaginaria.}
+	\label{fig: r1d}
+\end{figure} 
 
-Si se calcula el error según la ecuación 
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1e.png}\\
+	\caption{Módulos obtenidos de los valores del campo.}
+	\label{fig:r1e}
+\end{figure} 
 
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1f.png}\\
+	\caption{Variación porcentual de los módulos.}
+	\label{fig:r1f}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1g.png}\\
+	\caption{Número de iteraciones para el caso con hilos.}
+	\label{fig:r1g}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r1h.png}\\
+	\caption{Número de iteraciones para el caso efectivo.}
+	\label{fig:r1h}
+\end{figure} 
+
+Es importante mencionar que el módulo se calcula de la forma:
 \begin{equation}
-e_{rel} =| \frac{f_{h}-f_{sh}}{f_{sh}} | \cdot 100 \%,
+Mod = \sqrt{Re^2 + Im^2}.
 \end{equation}
 
-\noindent donde $f_{h}$ es el valor con hilos y $f_{sh}$ sin hilos, se obtiene un \textbf{$0,7 \%$}.
+Se puede ver que en algunas zonas los valores son bastante similares, pero en general se tienen errores del módulo de hasta un poco más de 50 \%. Se presenta la forma de convergencia, que si bien es para un caso de 25 iteraciones, la forma se mantiene en el resto:
+
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{convergencia.png}\\
+	\caption{Forma seguida de la convergencia del código.}
+	\label{fig:convergencia}
+\end{figure} 
+
+
+
 
 \subsubsection{Caso 2}
 
-Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las del paper donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos. \cite{Wire_theory_2} Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% para diferentes condiciones de trabajo. \cite{Wire_theory_1}
+Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las del paper donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos. \cite{Wire_theory_2} Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% en diferentes condiciones de trabajo. \cite{Wire_theory_1}
 
 Los datos son:
 
 \begin{itemize}
 	\item Amplitud de campo = 1. $[N \cdotp C^{-1}]$
-	\item Frecuencia = 12 $[GHz]$
-	\item Permeabilidad matriz contenedora = $1.$
-	\item Permitividad de la matriz = $16$
-	\item Permeabilidad hilo = -1.733+0.3725j
-	\item Permitividad hilo = -87641.359 -104633.972j
+	\item Frecuencia = 1 a 14 $[GHz]$
 \end{itemize}
 
+con las condiciones:
 
-Para lo cual se obtiene:
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{datos2.png}\\
+	\caption{Datos de entrada para el segundo caso de estudio.}
+	\label{fig:datos2}
+\end{figure} 
+
+
+Para lo cual en una sola frecuencia se obtiene:
 
 \begin{lstlisting}
 Numero de onda exterior: 0.000251498735159
@@ -1630,67 +1672,85 @@ Indice de transmision conductor: (-1.734+0.37j)
 Longitud de onda: 24982.9698078 micras
 Shape of matrix: (50100, 50100)
 El sistema fue resuelto en 2709 iteraciones
-Valor del campo en receptor: [-1.06694707-0.05291927j]
+Valor del campo en receptor: [-1.06694707-0.05291927j],
 \end{lstlisting}
+\noindent de la misma forma que antes.
 
-donde se ve que el valor del campo es de -1.06694707-0.05291927j $[N \cdot C^{-1}]$. Ahora con el mismo procedimiento anterior para el compósito sin hilos, se ingresan los datos:
+Los valores de campo obtenidos como resultado se presentan a continuación:
 
-\begin{itemize}
-	\item Amplitud de campo = 1. $[N \cdotp C^{-1}]$
-	\item Frecuencia = 12 $[GHz]$
-	\item Permeabilidad efectiva = $1-0j$
-	\item Permitividad efectiva = $8-5j$
-\end{itemize}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{salida2.png}\\
+	\caption{Datos de salida para el segundo caso de estudio.}
+	\label{fig:salida2}
+\end{figure} 
 
-Se obtiene entonces:
+Nuevamente es necesario realizar la comparación entre el compósito con hilos y el compósito sin hilos, por lo que se procede a realizar los gráficos, anteriormente utilizados, para este caso:
 
-\begin{lstlisting}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2a.png}\\
+	\caption{Parte real del campo medido.}
+	\label{fig:r2a}
+\end{figure} 
 
-Numero de onda exterior: 0.000251498735159
-Indice de refraccion matriz: (2.95245500661-0.846752954544j)
-Indice de refraccion conductor: (465.126197069+160.18018933j)
-Numero de onda interior matriz: (0.000742538699776-0.00021295729706j)
-Numero de onda interior conductor: (0.379485741766+0.0198879717955j)
-Indice de transmision matriz: 1.0
-Indice de transmision conductor: (-1.734+0.37j)
-Longitud de onda: 24982.9698078 micras
-Shape of matrix: (16776, 16776)
-El sistema fue resuelto en 11 iteraciones
-Valor del campo en receptor: [-0.97682803+0.7664753j]
-\end{lstlisting}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2b.png}\\
+	\caption{Parte imaginaria del campo medido.}
+	\label{fig:r2b}
+\end{figure} 
 
-Se obtiene un valor del campo de -0.97682803+0.7664753j $[N \cdot C^{-1}]$. Si se compara este valor con el compósito con hilos, se obtiene un error relativo de un \textbf{9,2 \%}.
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2c.png}\\
+	\caption{Variación porcentual de la parte real.}
+	\label{fig:r2c}
+\end{figure} 
 
-Para el \textbf{caso número 1}, el valor del campo en la posición medida sin compósito que lo afecte, corresponde a \textbf{0.40601917+0.91386456j $[N \cdot C^{-1}]$} y para el \textbf{caso número 2} corresponde a \textbf{-0.81002282+0.58639836j $[N \cdot C^{-1}]$}.
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2d.png}\\
+	\caption{Variación porcentual de la parte real sin 8 [GHz].}
+	\label{fig:r2d}
+\end{figure} 
 
-Con esto se puede medir el porcentaje de cambio del campo cuando no hay objeto que se interponga en su camino, y cuando existe un un compósito. Se obtienen los siguientes resultados:
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2e.png}\\
+	\caption{Variación porcentual de la parte imaginaria.}
+	\label{fig:r2e}
+\end{figure} 
 
-\begin{itemize}
-	\item Caso 1: 15,99 \%
-	\item Caso 2: 20,59 \%
-\end{itemize}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2f.png}\\
+	\caption{Módulo de los valores del campo obtenido.}
+	\label{fig:r2f}
+\end{figure} 
 
-Además se puede medir el error de cambio en los módulos de los valores del campo, considerando la parte imaginaria:
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2g.png}\\
+	\caption{Variación porcentual de los módulos del campo.}
+	\label{fig:r2g}
+\end{figure} 
 
-\begin{itemize}
-	\item Caso 1: 43 \%
-	\item Caso 2: 13,96 \%
-\end{itemize}
+\begin{figure}[H]
+	\centering\includegraphics[scale=0.6]{r2h.png}\\
+	\caption{Número de iteraciones del código.}
+	\label{fig:r2h}
+\end{figure} 
+
+
+Como se puede ver, los valores son bastante similares para los módulos en los casos de mayor frecuencia, obteniéndose variaciones menores a un 5 \%. Para el caso de frecuencias bajas, se obtienen las variaciones más altas, las cuales se podrían deber a que coinciden con los valores imaginarios de permitividad del hilo más altos.
 
 
 \section{Análisis y conclusiones} \label{sec:Analisis y conclusiones}
 
-En el trabajo presente se comentó la utilización de microhilos para la medición de esfuerzos mecánicos en aplicaciones de ingeniería. Se establecieron formulaciones matemáticas para su desarrollo  y se diseño un código computacional para el cálculo de las propiedaes más importantes de los microhilos, como lo son la permeabilidad y la permitividad. En la sección anterior se realizaron pruebas de validez para el código computacional desarrollado. 
+En el presente se comentó la utilización de microhilos para la medición de esfuerzos mecánicos en aplicaciones de ingeniería. Se establecieron formulaciones matemáticas para su desarrollo  y se diseño un código computacional para el cálculo de las propiedaes más importantes de los microhilos, como lo son la permeabilidad y la permitividad. En la sección anterior se realizaron pruebas de validez para el código computacional desarrollado. 
 
-Los valores de frecuencia que se eligieron corresponden a valores de los gráficos en que la permitividad de los microhilos y del compósito no son tan altos, y su parte compleja no se aleja demasiado del cero. En estos valores, se logró demostrar que los resultados obtenidos de la simulación son bastante cercanos a los datos experimentales obtenidos de los papers citados, con errores incluso menores al 1 \%. Esto se logró obteniendo las propiedades de los microhilos en base a propiedades efectivas, para luego utilizar ambas por separados y ser comparadas. Si bien existen referencias que contienen valores de permitividades mas pequeñas, estas no consideran el hecho de obtener las propiedades analíticamente, por lo que el problema se restringío a las referencias que si validaban el trabajo actual.
+Los valores de frecuencia que se eligieron corresponden a valores de los gráficos en que la permitividad de los microhilos y del compósito no son tan altos, y su parte compleja no se aleja demasiado del cero. En estos valores, se logró demostrar que los resultados obtenidos de la simulación son bastante cercanos a los datos experimentales obtenidos de los papers citados, cuando los valores de permitividad del hilo no se escapan de los cientos de miles. Esto se logró obteniendo las propiedades de los microhilos en base a propiedades efectivas, para luego utilizar ambas por separados y ser comparadas. Si bien existen referencias que contienen valores de permitividades mas pequeñas, estas no consideran el hecho de obtener las propiedades analíticamente, por lo que el problema se restringío a las referencias que si validaban el trabajo actual.
 
 Se desarrollaron códigos para la simulación de la dispersión del campo electromagnético en los compósitos, que corresponde al código de mayor complejidad, para la obtención de la permitividad del hilo y la permeabilidad del hilo. Los resultados obtenidos para las propiedades de los microhilos se obtuvieron con metodos iterativos simples y se les tiene para distintas frecuencias.
 
-Sin embargo, para frecuencias distintas a las mencionadas anteriormente, se generaron numerosos problemas de convergencia de los códigos y/o valores muy alejados de la realidad, llegando incluso a varias miles de iteraciones, lo cual no es aceptable. En ciertas ocaciones, algunos valores escapaban de valores reales y se hacían infinitos, imposibilitando la resolución o iteración de soluciones. 
+Sin embargo, para frecuencias bajas como las mencionadas anteriormente, se generaron problemas de convergencia, ya que aumentó el tiempo y la cantidad de iteraciones, de los códigos y/o valores muy alejados de la realidad, lo cual no es aceptable. En ciertas ocaciones, algunos valores escapaban de las variaciones esperadas en mas del cien porciento. 
 
 Hay que tener ciertas consideraciones en cuenta, que pudiesen haber afectado ya sea la convergencia o los valores obtenidos. Los compósitos utilizados en los experimentos reales, eran de hasta incluso $34 \times 38 cm^2$ (en el trabajo se utilizó un compósito 300 veces más pequeño), para lo cual, según la proporción de hilos/compósito, implicaría utilizar cientos de hilos para el problema. Si bien esto es posible de desarrollar, implicaría que el aumento de la memoria RAM utilizada por el computador incrementara de manera absurda, escapándose de toda herramienta computacional de fácil acceso. En los códigos utilizados para 6 hilos ya se ocupaban valores cercanos a los 12 Gb de RAM. La relación de RAM con el trabajo va de la mano de los elementos de las geometrías, por lo que si esta aumenta 300 veces, el problema se hace complejo.
 
-Otra causa de los problemas de convergencia, fueron los valores complejos utilizados. Al utilizar un complejo muy alto, las iteraciones aumentaban considerablemente, incluso estancándose en algún valor fijo. Esto podía darse también con problemas en las mallas, las cuales si bien fueron revisadas y corregidas numerosas veces, nunca son perfectas.
+Se puede notar que las altas variaciones en los valores de campo obtenidos para un compósito con hilos y uno sin hilos, dependen fuertemente del valor de la permitividad de los hilos. Cuando la parte entera es alta, se genera una diferencia notoria en los valores del campo, aumentando iteraciones y arrojando valores lejanos.
 
 Como se mencionó en el trabajo, se utilizó la ecuación de Helmholtz en el borde para realizar la aproximación numérica del problema. Si bien la aproximación es aceptable, esta deja consideraciones de lado que son importantes, como por ejemplo, polarización. Para resolver el problema de la polarización, una de las opciones habría sido realizar la formulación matemática utilizando la ecuación armónica en el tiempo de Maxwell, la cual como se mostró en secciones anteriores, es soportada por BEM++. Sin embargo, eso significa tomar una perspectiva completamente distinta, y desarrollar el trabajo desde cero, dejándo de lado una ecuación únicamente dependiente del espacio.
 
