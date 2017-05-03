@@ -118,9 +118,9 @@ A mi familia por su apoyo constante e incondicional en cada paso que he dado en 
 \pagebreak
 \section*{Resumen}
 
-Los microhilos ferromagnéticos tienen propiedades que varían en función de la tensión mecánica, por lo que se han presentado como una herramienta promisoria para el desarrollo de materiales inteligentes, capaces de entregar información del estado de tensiones internas. Gracias a esta variación de sus propiedades, es posible medir su cambio con algún campo externo, y asi establecer una relación directa. Sin embargo, las propiedades de permitividad y permeabilidad de los hilos están lejos de ser comprendidas a cabalidad, dificultando el uso de herramientas computacionales para su simulación. Sus valores dependen altamente de varios factores que se deben tener en cuenta y considerar, o en su defecto, establecer si pueden despreciarse. 
+Los microhilos ferromagnéticos tienen propiedades magnéticas que varían en función de la tensión mecánica, por lo que se han presentado como una herramienta promisoria para el desarrollo de materiales inteligentes, capaces de entregar información del estado de tensiones internas. Gracias a esta variación de sus propiedades, es posible medir su cambio con algún campo externo, y asi establecer una relación directa. Sin embargo, las propiedades de permitividad y permeabilidad de los hilos están lejos de ser comprendidas a cabalidad, dificultando el uso de herramientas computacionales para su simulación. Sus valores dependen altamente de varios factores que se deben tener en cuenta y considerar, o en su defecto, establecer si pueden despreciarse. 
 
-El objetivo del presente trabajo es utilizar 	simulaciones numéricas para determinar las propiedades antes mencionadas (permeabilidad y permitividad) de los microhilos ferromagnéticos para luego ser comparados con los resultados experimentales, para luego validar su efectividad.
+El objetivo del presente trabajo es utilizar aproximaciones numéricas para la obtención de propiedades anteriormente señaladas (como lo son permeabilidad y permitividad). Una vez conocidos estos valores, se utilizarán en simulaciones computacionales y se compararán con resultados experimentales.
 
 Para su realización, se deberán estudiar las propiedades electromagnéticas de los microhilos en función de diferentes variables, como lo son frecuencia, tensión, campo externo, GMI, etc. Se implementará un código de resolución de acuerdo al método de elementos de borde con una modelación de un problema de dispersión de ondas electromagnéticas con las ecuaciones de Maxwell y Helmholtz. Se diseñarán mallas para el trabajo de los microhilos y su simulación y se utilizarán en el código para generar un protocolo numérico-experimental para determinar la permitividad y permeabilidad de los microhilos ferromagnéticos. Finalmente, se compararán los resultados con otros modelos y datos experimentales, dando cuenta de la validez de los modelos computacionales y las limitaciones presentes.
  \\
@@ -134,9 +134,9 @@ Para su realización, se deberán estudiar las propiedades electromagnéticas de
 \pagebreak
 \section*{Abstract}
 
-Ferromagnetic microwires have properties that change due to mechanical stress, so they have been presented as a promising tool for the development of inteligent materials capable of providing information about the condition of internal stress. Thanks to this variation of those properties, it is posible to measure how it changes because of an external field, and thus, establish a direct relation. However, microwire properties like permeability and permittivity are far from being fully understood, making it difficult to use computational tools for its simulation. These values depend strongly of several factors that must be taken into account, or in some cases, decide if they can be neglected.
+Ferromagnetic microwires have magnetic properties that change due to mechanical stress, so they have been presented as a promising tool for the development of inteligent materials capable of providing information about the condition of internal stress. Thanks to this variation of those properties, it is posible to measure how it changes because of an external field, and thus, establish a direct relation. However, microwire properties like permeability and permittivity are far from being fully understood, making it difficult to use computational tools for its simulation. These values depend strongly of several factors that must be taken into account, or in some cases, decide if they can be neglected.
 
-The objective of this work is to use numerical simulations to determine the properties mentioned before (permeability and permittivity) of the ferromagnetic microwires, so they can be compared with the experimental results to validate their effectiveness.
+The objective of this work is to use numerical approximations to obtain the previously mentioned properties (such as permittivity and permeability). Once these values are known, they will be used in computational simulations so they can be compared with experimental results. 
 
 For its realization, the electromagnetic properties of the microwires must be studied according to several variables, such as frecuency, stress, external fields, GMI, etc. A computational code will be implemented using the Boundary Elements Method with the devolopment of a model containing an electromagnetic scattering problem with Maxwell and Helmholtz equations. Meshes will be designed for the microwires and its simulation, and will be used in the code to generate a numerical-experimental protocole to determine the permeabilidad and permittivity of the ferromagnetic microwires. Finally, the obtained results will be compared with other models and experimental data, 	establishing the validity of the computational methods and their limitations.
  \\
@@ -195,13 +195,13 @@ For its realization, the electromagnetic properties of the microwires must be st
 
 \section{Introducción}
 
-Recientes avances tecnológicos e industriales en lo que concierne a sensores y dispositivos magnéticos, requieren materiales con propiedades magnéticas excepcionales. Como un fuerte candidato, los microhilos ferromagnéticos amorfos han sido estudio durante décadas debido a su propiedades de sensibilidad. Su respuesta electromagnética puede ser medida convenientemente a través del diseño de su composición química y tamaño, sobre todo en un espectro de microondas, alterándose gracias a estímulos externos, e.g. campos magnéticos y estrés mecánico. Estos efectos, proveen variadas aplicaciones, tales como absorción de microondas, monitoreo de salud estructural (debido a que las propiedades ferromagnéticas de los hilos se ven directamente afectadas con un esfuerzo aplicado), entre otras. 
+Recientes avances tecnológicos e industriales en lo que concierne a sensores y dispositivos magnéticos, requieren materiales con propiedades magnéticas excepcionales. Como un fuerte candidato, los microhilos ferromagnéticos amorfos han sido estudio durante décadas debido a su propiedades de sensibilidad. Su respuesta electromagnética puede ser medida convenientemente debido a que, estableciendo una determinada composición química y tamaño, es posible tener un material amorfo sensible a los estímulos externos, e.g. campos magnéticos y estrés mecánico, sobre todo en un espectro de microondas. Estos efectos, proveen variadas aplicaciones, tales como absorción de microondas, monitoreo de salud estructural (debido a que las propiedades ferromagnéticas de los hilos se ven directamente afectadas con un esfuerzo aplicado), entre otras. 
 
 
 En general se les clasifica en microhilos basados en Fe y en Co, siendo estos dos los componentes que dan mejores propiedades electromagnéticas con las microondas incidentes. Se han hechos numerosos esfuerzos en fabricar hilos con componentes químicos diferentes para mejorar sus propiedades, pero probó ser muy costoso. 
 
 
-Si bien los hilos proveen una buena sensibilidad magnética, cabe destacar que existe un problema en cuanto a su uso, debido a que el diámetro de los hilos es de unas decenas de micras, lo que implica que éstos posean una naturaleza frágil respecto a fracturas, limitando sus aplicaciones. Por lo que una de las incógnitas de las investigaciones actuales consiste en averiguar cómo fabricar microhilos así de pequeños, sin alterar sus propiedades magnéticas.
+Si bien los hilos proveen una buena sensibilidad magnética, existe un problema en cuanto a su uso, debido a que el diámetro de los hilos es de solo unas decenas de micras, lo que significa que son frágiles frente a fracturas, limitando sus aplicaciones. Es por lo anterior, que uno de los principales objetivos actuales es sintetizar microhilos pequeños, sin afectar sus propiedades magnéticas.
 
 
 Recientemente, se ha estado utilizando una técnica que consiste en posicionar los microhilos en un compuesto basado en polímeros, el cual a la vez permite mejorar el rendimiento de los hilos al aumentar su número y preservarlos de mejor manera en una matriz. Este método logra solucionar de buena forma el problema anteriormente mencionado.
@@ -220,7 +220,7 @@ Como se mencionó anteriormente, el uso de microhilos para la medición de la va
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.6]{compositocampo.png}
-	\caption{Compósito de hilos.}
+	\caption{Compósito de hilos. \cite{Wire_theory_3}}
 	\label{fig: compositoproblema.png}
 \end{figure} 
 
@@ -236,7 +236,7 @@ Estos hilos se preparan bajo un método de solidificación rápida, en un proces
 
 \begin{figure}[H]
 	\centering\includegraphics[height=100mm]{microhilo.png}
-	\caption{Microhilo cubierto de pyrex.}
+	\caption{Microhilo cubierto de pyrex.  \cite{Wire_theory_3}}
 \end{figure}
 
 
@@ -246,7 +246,7 @@ La forma longitudinal de los microhilos determina además sus propiedades, las q
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.6]{composito.png}
-	\caption{Compósito sometido a una onda electromagnética.}
+	\caption{Compósito sometido a una onda electromagnética. \cite{Wire_theory_1}}
 	\label{fig: composito}
 \end{figure} 
 
@@ -279,16 +279,16 @@ En el rango de frecuencias altas (hasta algunos GHz), el campo magnético que ll
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.5]{tablaocampos.png}
-	\caption{Configuraciones del campo electromagnético en el rango de microondas.}
+	\caption{Configuraciones del campo electromagnético en el rango de microondas. \cite{Wire_theory_2}}
 	\label{fig: tablacampos}
 \end{figure} 
 
-Al tener distintas configuraciones de incidencia de campo y orientación de hilos, se genera un efecto importante llamado Impedancia Magnética Gigante o GMI. La GMI se define como una larga variación en la impedancia magnética que ocurre en un conductor suave que conduce una corriente alterna cuando este es sometido a un campo magnético externo. Esta corriente que se genera produce un campo magnético circular en la superficie del microhilo, lo que modifica la corriente eléctrica, superponiéndose.
+Al tener distintas configuraciones de incidencia de campo y orientación de hilos, se genera un efecto importante llamado Impedancia Magnética Gigante o GMI. La GMI se define como una larga variación en la impedancia magnética que ocurre en un conductor suave que conduce una gran corriente alterna cuando este es sometido a un campo magnético externo. Esta corriente que se genera, produce un campo magnético circular en la superficie del microhilo, lo que modifica la corriente eléctrica, superponiéndose.
 Este fenómeno es causado por la dependencia de la permeabilidad del material con el campo magnético, la cual causa variaciones en la profundidad de penetración de las corrientes que fluyen por el objeto. La superposición concuerda con la solución a la ecuación de Maxwell para la densidad de corriente, que se explica en secciones posteriores. Este efecto se conoce también como ``skin effect''.
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.3]{Esquema_hilo.png}\\
-	\caption{Esquema de estímulos externos sobre un microhilo y campo magnético circular generado por impedancia magnética.}
+	\caption{Esquema de estímulos externos sobre un microhilo y campo magnético circular generado por impedancia magnética. \cite{Wire_theory_1}}
 	\label{fig:Esquema_hilo}
 \end{figure} 
 
@@ -299,99 +299,12 @@ Estos efectos deben ser tomados en consideración cuando se estudian las propied
 
 Una vez que se integran los microhilos al compósito, ya no se pueden tratar sus componentes por separado. Tanto el material del compósito como los hilos tienen sus propiedades, por lo que es necesario compactarlas en una sola geometría que represente de buena forma sus partes por separado. Es por eso que al estudiar un compósito se deja de hablar de permeabilidad y permitividad del o los hilos y se comienza a hablar de ``permeabilidad y permitividad efectiva'', la cual congrega todas las propiedades en una generalización.
 
-Los compósitos compuestos de microhilos pueden y deben ser tratados como un medio continuo y luego ser caracterizados según la permeabilidad efectiva. Si el ``skin effect'' es fuerte, la permitividad efectiva, comúnmente denominada $\epsilon_{ef}$, es determinada por la geometría del hilo, la concentración de hilos y la permitividad del material que ``almacena'' a los hilos. Se ha demostrado que la cantidad necesaria de microhilos depende de la impedancia, la que involucra la permeabilidad $\mu$ del hilo y su estructura magnética. En compósitos que contengan microhilos ferromagnéticos con impedancias magnéticas en frecuencias de microondas, la permitividad efectiva $\epsilon_{ef}$ podría depender de un campo magnético estático de acuerdo a su dependencia con la impedancia en la superficie de los microhilos. Por lo tanto, $\epsilon_{ef}$ dependería de un estrés externo o esfuerzo.
+Los compósitos compuestos de microhilos pueden y deben ser tratados como un medio continuo y luego ser caracterizados según la permeabilidad efectiva. Si el ``skin effect'' es fuerte, la permitividad efectiva, comúnmente denominada $\epsilon_{ef}$, es determinada por la geometría del hilo, la concentración de hilos y la permitividad del material que ``almacena'' a los hilos. Se ha demostrado que la cantidad necesaria de microhilos depende de la impedancia, la que involucra la permeabilidad $\mu$ del hilo y su estructura magnética. En compósitos que contengan microhilos ferromagnéticos con impedancias magnéticas en frecuencias de microondas, la permitividad efectiva $\epsilon_{ef}$ podría depender de un campo magnético estático de acuerdo a su dependencia con la impedancia en la superficie de los microhilos. Por lo tanto, $\epsilon_{ef}$ dependería de un estrés externo o esfuerzo. \cite{Wire_theory_2}
 
 Además, otra importante propiedad a considerar es la permeabilidad efectiva del compósito, comúnmente denomidad $\mu_{ef}$. 
 
 Estas propiedades mencionadas no son constantes, y como se dijo anteiormente, dependen de numerosos factores. Para el cálculo de la variación del campo electromagnético aplicado en el compósito de microhilos, se necesitan las permeabilidades y permitividades básicas y efectivas, por lo que es de suma importancia contar con una herramienta para su cálculo. Es por eso que se intentará establecer un código computacional, como se mencionó antes, para lograr simular estos valores para distintas frecuencias y condiciones.
  
-\section{Software utilizado}
-
-Para el modelamiento del problema se requieren distintos software. Es importante mencionar además que estos fueron utilizados en el OS Linux 16.04, por lo que no se asegura compatibilidad con distintos sistemas operativos:
-
-\begin{itemize}
-	\item \textit{Anaconda v4.3.1:} este software corresponde a un paquete de distribución, el cual contiene herramientas para procesamiento de datos de larga escala, en lenguaje Python y R, capaz de proveer análisis predictivo y computamiento científico, simplificando el manejo de paquetes. Utiliza una versión de hojas de trabajo para Python v2.7.
-	
-	\item \textit{BEM++ v3.0.3:} corresponde a una biblioteca de fuente abierta de elementos de borde de Galerkin, capaz de resolver problemas de borde con Laplace, Helmholtz y Maxwell. En las secciones posteriores se explicará en mayor detalle.
-	
-	\item \textit{Freecad v0.15:} este corresponde a una herramienta muy eficaz para la creación de geometrías a utilizar en los problemas. Permite crear la forma requerida, para luego crear una malla con herramientas matemáticas.
-	
-	\item \textit{gmsh v2.16.0:} este simple software permite revisar las mallas de las geometrías y cambiarlas a numerosos formatos para su posterior uso.
-	
-	\item \textit{MeshLab v1.3.3:} este software provee un sistema de visualización, procesamiento y edición de mallas triangulares de geometrías. Contiene numerosas herramientas para la visualización de las mallas en conjunto, limpieza, reparación, inspección, etc. 
-	
-	
-\end{itemize}
-
-
-Es importane mencionar que el computador a ocupar posee 32 Gb de Memoria RAM y 24 núcleos.
-
-\section{Modelación de las geometrías}
-
-
-Como se mencionó anteriormente, la modelación de estos hilos se hace mediante el software FreeCad, el cual permite hacer las distintas geometrías y generar una malla de ésta, a su vez suavizándola. El mallado se realiza con la función de Mefisto del software, y la suavización a través de una metodología de aproximación de Laplace.
-
-\begin{figure}[H]
-	\centering\includegraphics[height=80mm]{hilocad1.png}
-	\caption{Geometría utilizada.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=80mm]{hilocad2.png}
-	\caption{Generación de una malla en el hilo.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=80mm]{hilocad3.png}
-	\caption{Malla del hilo.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=80mm]{hilocad4.png}
-	\caption{Malla del hilo suavizada y libre de errores.}
-\end{figure}
-
-Una vez obtenida la malla, es necesario ajustar el formato a los soportados por la biblioteca de BEM++, que en este caso corresponde a ``.msh''. Para esto, se utiliza el software GMSH, que permite utilizar el archivo ``.stl'' de FreeCad y exportar la malla al formato deseado.
-
-\begin{figure}[H]
-	\centering\includegraphics[height=100mm]{hilocad5.png}
-	\caption{Malla del hilo en software GMSH.}
-\end{figure}
-
-Además de modelar los hilos requeridos para el análisis, se debe modelar la matriz donde estarán contenidos los hilos, que si bien se desea que no afecte de gran manera al campo, es necesaria para la programación del problema.
-
-Esta matriz se crea de la misma manera que los hilos, simplemente cambiando la geometría deseada.
-
-\begin{figure}[H]
-	\centering\includegraphics[height=50mm]{matrizcad.png}
-	\caption{Malla de la matriz que contendrá el compuesto de hilos.}
-\end{figure}
-
-Una vez modeladas ambas geometrías, es necesario revisar su orientación, ubicación, y distintos factores que son importantes a la hora de evaluar los códigos, como por ejemplo, la orientación de las normales de los elementos, que se desea que estén orientadas hacia el exterior del objeto, y también la duplicación de caras y vértices.
-
-Para comprobar lo anterior se utilizar el software MeshLab, el cual permite corregir estos errores, en caso de existir, y además permite juntar las geometrías para comprobar su ubicación y orientación en el espacio.
-
-\begin{figure}[H]
-	\centering\includegraphics[height=70mm]{snapshot01.png}
-	\caption{Malla de la matriz con 6 hilos.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=70mm]{snapshot04.png}
-	\caption{Malla de matriz desde el interior, donde se puede ver un hilo.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=70mm]{composite1.png}
-	\caption{Malla de la matriz con un hilo, y las normales del hilo.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering\includegraphics[height=70mm]{composite2.png}
-	\caption{Malla de la matriz con sus normales hacia afuera.}
-\end{figure}
-
-Una vez posicionados, se pueden utilizar las geometrías para el código y realizar las pruebas requeridas. Es importante mencionar que cada cambio en la geometría utilizada, implica repetir todo el proceso anterior en lo que es creación de geometría y malla y de revisión de factores que podrían influir.
 
 \section{Ecuación integral de borde}
 
@@ -416,7 +329,7 @@ Las ecuaciones de Maxwell son una herramienta fundamental para desarrollar el pr
 \end{equation}
 \\
 
-La ecuación \ref{eq:Ley de Gauss} corresponde a la ``Ley de Gauss'', tambien conocida como teorema de Gauss, la cual establece que el flujo de ciertos campos a través de una superficie cerrada es proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie. Esto se logra a través de una relación entre el campo eléctrico y la densidad de carga. El valor $\epsilon_0$ corresponde a la permitividad eléctrica del vacío, la cual se definió anteriormente.
+La ecuación \ref{eq:Ley de Gauss} corresponde a la ``Ley de Gauss'', tambien conocida como ``teorema de Gauss'', la cual establece que el flujo de ciertos campos a través de una superficie cerrada es proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie. Esto se logra a través de una relación entre el campo eléctrico y la densidad de carga. El valor $\epsilon_0$ corresponde a la permitividad eléctrica del vacío, la cual se definió anteriormente.
 
 La ecuación \ref{eq:Maxwell no name} corresponde a la ``Ley de Gauss'' para campos magnéticos, en la cual se indica que la divergencia de estos campos es siempre 0.
 
@@ -589,7 +502,7 @@ Al utilizar la ecuación de Helmholtz obtenida anteriormente y multiplicar por l
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{inves2}
-	\caption{Volumen y superficie de una geometría en estudio. }
+	\caption{Volumen y superficie de una geometría en estudio. \cite{paperBEMpp}}
 \end{figure}
 
 
@@ -616,9 +529,11 @@ $$g(\textbf{r}-\textbf{r'})=\frac{e^{ik|\textbf{r}-\textbf{r'}}|}{4\pi |\textbf{
 \noindent con $r_{0}$ como punto fuente. Siendo solución de la ecuación de Helmholtz propuesta:
 
 \begin{equation}
-(\Delta+k^2)g(\textbf{r}-\textbf{r'})=-f(\textbf{r}-\textbf{r'})
+(\Delta+k^2)g(\textbf{r}-\textbf{r'})=-f(\textbf{r}-\textbf{r'},)
 \label{eq:Helmholtz green}
 \end{equation}
+
+donde $f$ corresponde a la función delta de Dirac.
 
 Con esta solución fundamental de Green, se puede reescribir la ecuación \ref{eq: BIE_int_3} para la superficie $\Gamma$ del volumen en estudio:
 
@@ -643,7 +558,7 @@ Con esto en mente, por fin se puede pensar en el problema principal de una onda 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{uinc}
-	\caption{Onda incidente y dispersor en geometrías, con sus respectivas normales. }
+	\caption{Onda incidente y dispersor en geometrías, con sus respectivas normales. \cite{Multitrace_acoustic} }
 \end{figure}
 
 Además, como se mencionará en la sección siguiente, con la biblioteca que proporciona BEM++, se tienen operadores que corresponden a los que se utilizarán para la resolución de la ecuación de Helmholtz. Estos son el operador de capa simple y el operador de capa doble (Single layer potential y Double layer potential, en inglés):
@@ -666,14 +581,14 @@ $$\lim\limits_{\textbf{r}\rightarrow \textbf{0}}\int_{\Gamma}u(\textbf{r'})\frac
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{inves3}
-	\caption{Punto exterior a la geometría que se acercará al borde. }
+	\caption{Punto exterior a la geometría que se acercará al borde. \cite{paperBEMpp} }
 	\label{inci1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{inves4}
-	\caption{Punto exterior en la geometría que se acercará al borde. }
+	\caption{Punto exterior en la geometría que se acercará al borde. \cite{paperBEMpp} }
 	\label{inci2}
 \end{figure}
 
@@ -772,6 +687,8 @@ u_{inc}\\
 \end{bmatrix}.
 \label{eq:matriz trans}		 
 \end{equation} 
+
+Es importante mencionar que si bien $D_{i]}$ y $D_{e}$ tienen signos contrarios, no se cancelan entre ellos debido a que cada uno posee un número de onda $k$ distinto.
 
 \subsection{Dispersión en múltiples objetos o Multiple Scattering}
 
@@ -887,13 +804,166 @@ u_{inc}^1\\
 \end{equation} 
 
 
+\section{Software utilizado}
+
+Para el modelamiento del problema se requieren distintos software. Es importante mencionar además que estos fueron utilizados en el OS Linux 16.04, por lo que no se asegura compatibilidad con distintos sistemas operativos:
+
+\begin{itemize}
+	\item \textit{Anaconda v4.3.1:} este software corresponde a un paquete de distribución, el cual contiene herramientas para procesamiento de datos de larga escala, en lenguaje Python y R, capaz de proveer análisis predictivo y computamiento científico, simplificando el manejo de paquetes. Utiliza una versión de hojas de trabajo para Python v2.7.
+	
+	\item \textit{BEM++ v3.0.3:} corresponde a una biblioteca de fuente abierta de elementos de borde de Galerkin, capaz de resolver problemas de borde con Laplace, Helmholtz y Maxwell. En las secciones posteriores se explicará en mayor detalle.
+	
+	\item \textit{Freecad v0.15:} este corresponde a una herramienta muy eficaz para la creación de geometrías a utilizar en los problemas. Permite crear la forma requerida, para luego crear una malla con herramientas matemáticas.
+	
+	\item \textit{gmsh v2.16.0:} este simple software permite revisar las mallas de las geometrías y cambiarlas a numerosos formatos para su posterior uso.
+	
+	\item \textit{MeshLab v1.3.3:} este software provee un sistema de visualización, procesamiento y edición de mallas triangulares de geometrías. Contiene numerosas herramientas para la visualización de las mallas en conjunto, limpieza, reparación, inspección, etc. 
+	
+	
+\end{itemize}
 
 
+Es importane mencionar que el computador a ocupar posee 32 Gigabytes de Memoria RAM y 12 núcleos. Para las pruebas se utilizó el orden de cuadratura de 6 (por defecto), además, una tolerancia de $10^{-5}$ para la multiplicación matriz-vector a través de GMRES.
+
+\section{Modelación de las geometrías}
+
+
+Como se mencionó anteriormente, la modelación de estos hilos se hace mediante el software FreeCad, el cual permite hacer las distintas geometrías y generar una malla de ésta, a su vez suavizándola. El mallado se realiza con la función de Mefisto del software, y la suavización a través de una metodología de aproximación de Laplace.
+
+\begin{figure}[H]
+	\centering\includegraphics[height=80mm]{hilocad1.png}
+	\caption{Geometría utilizada.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=80mm]{hilocad2.png}
+	\caption{Generación de una malla en el hilo.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=80mm]{hilocad3.png}
+	\caption{Malla del hilo.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=80mm]{hilocad4.png}
+	\caption{Malla del hilo suavizada y libre de errores.}
+\end{figure}
+
+Una vez obtenida la malla, es necesario ajustar el formato a los soportados por la biblioteca de BEM++, que en este caso corresponde a ``.msh''. Para esto, se utiliza el software GMSH, que permite utilizar el archivo ``.stl'' de FreeCad y exportar la malla al formato deseado.
+
+\begin{figure}[H]
+	\centering\includegraphics[height=100mm]{hilocad5.png}
+	\caption{Malla del hilo en software GMSH.}
+\end{figure}
+
+Además de modelar los hilos requeridos para el análisis, se debe modelar la matriz donde estarán contenidos los hilos, que si bien se desea que no afecte de gran manera al campo, es necesaria para la programación del problema.
+
+Esta matriz se crea de la misma manera que los hilos, simplemente cambiando la geometría deseada.
+
+\begin{figure}[H]
+	\centering\includegraphics[height=50mm]{matrizcad.png}
+	\caption{Malla de la matriz que contendrá el compuesto de hilos.}
+\end{figure}
+
+Una vez modeladas ambas geometrías, es necesario revisar su orientación, ubicación, y distintos factores que son importantes a la hora de evaluar los códigos, como por ejemplo, la orientación de las normales de los elementos, que se desea que estén orientadas hacia el exterior del objeto, y también la duplicación de caras y vértices.
+
+Para comprobar lo anterior se utilizar el software MeshLab, el cual permite corregir estos errores, en caso de existir, y además permite juntar las geometrías para comprobar su ubicación y orientación en el espacio.
+
+\begin{figure}[H]
+	\centering\includegraphics[height=70mm]{snapshot01.png}
+	\caption{Malla de la matriz con 6 hilos.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=70mm]{snapshot04.png}
+	\caption{Malla de matriz desde el interior, donde se puede ver un hilo.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=70mm]{composite1.png}
+	\caption{Malla de la matriz con un hilo, y las normales del hilo.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[height=70mm]{composite2.png}
+	\caption{Malla de la matriz con sus normales hacia afuera.}
+\end{figure}
+
+Una vez posicionados, se pueden utilizar las geometrías para el código y realizar las pruebas requeridas. Es importante mencionar que cada cambio en la geometría utilizada, implica repetir todo el proceso anterior en lo que es creación de geometría y malla y de revisión de factores que podrían influir.
+
+\subsection{Convergencia de las mallas.}
+
+Una aspecto importante para tener en consideración cuando se trabaja con simulaciones computacionales es la convergencia de las mallas.
+
+La extrapolación de Richardson es una técnica fundamental para comprobar lo anterior, utilizando soluciones con distintas mallas (mallas finas y mallas gruesas). Para ser correctamente aplicado, debe estar convergiendo al valor exacto a un ritmo constante y se puede estimar el valor constante de la forma:
+
+$$f_{exact}\approx f_1-\frac{f_1-f_2}{r^p-1},$$
+
+donde $f_{1]}$ es la solución de la malla fina y $f_{2}$ la de la malla gruesa, $r$ es el ratio de refinamiento (volumétrico o de área) y $p$ es el órden de convergencia. 
+
+$$r = h_2/h_1=h_3/h_2$$. 
+
+Para que la convergencia sea correcta, se requiere que el órden sea igual al esperado. En este caso, se tienen funciones constante para condiciones de frontera de Neumann, por lo que se espera un órden $1$.
+
+Se necesitan al menos tres mallas para su cálculo, y ordenando las ecuaciones anteriores, se calcula así:
+
+$$p = \frac{\log(\frac{f_3-f_2}{f_2-f_1})}{\log(r)}$$
+
+Como se mencionó, si este resultado coincide con el esperado, se tiene una convergencia aceptable. \cite{paperprofe}
+
+Se estudiaron dos casos, cada uno con una matriz y dos hilos, varíando la cantidad de elementos por malla:
+
+\vspace{3mm}
+
+\textbf{Caso 1:}
+
+\vspace{3mm}
+
+Tres mallas de hilos más cortos de lo normal (la cuarta parte del largo del hilo), pero con elementos más similares entre ellos, sin deformaciones, en una matriz contenedora que actúa de compósito. El número de elementos por mallas se presenta a continuación:
+
+\begin{itemize}
+	\item $n_1 = 34966$
+	\item $n_2 = 9572$
+	\item $n_3 = 2580$
+\end{itemize}
+
+Se obtiene un ratio de refinamiento de $0.272$ y los valores del módulo del campo con cada malla de:
+
+\begin{itemize}
+	\item $f_1 = 1.24672661$
+	\item $f_2 = 1.24624985$
+	\item $f_3 = 1.24432204$
+\end{itemize}
+
+Para estos valores, se obtiene un órden de convergencia de $1.07$, lo cual se acerca muchísimo al valor esperado, por lo que se puede ver que el código presenta una buena convergencia para mallas regulares.
+
+\vspace{4mm}
+\textbf{Caso 2:}
+\vspace{3mm}
+
+\begin{itemize}
+	\item $n_1 = 73628$
+	\item $n_2 = 19242$
+	\item $n_3 = 5550$
+\end{itemize}
+
+Se obtiene un ratio de refinamiento de $0.275$ y los valores del módulo del campo con cada malla de:
+
+\begin{itemize}
+	\item $f_1 = 1.24965273$
+	\item $f_2 = 1.24924146$
+	\item $f_3 = 1.14118261$
+\end{itemize}
+
+Para estos valores, se obtiene un órden de convergencia de $4.32$, el cual se aleja bastante del valor esperado. Este error se puede deber a tolerancias de aproximaciónes establecidas y, principalmente, a que debido al largo de los microhilos, sus elementos presentan una forma triangular alargada, dejándo de ser regulares, alterándo los resultados. 
+
+Para solucionar lo anterior, se requeriría el uso de hilos con bastantes más elementos, lo cual para uso pŕactica del trabajo no se puede, debido al alto requerimiento de capacidad computacional que no se tiene.
 
 \section{Método de elementos de borde y BEM++}
 \subsection{BEM}
 
-El método de elementos de borde ha surgido como una alternativa poderosa a los elementos finitos en los casos donde se requiere mayor precisión, como es el caso de concentración de esfuerzos, o donde el dominio se extiende al infinito. La característica más importante del método de elemento de bordes es que la metodología de formulación de las ecuaciones integrales de borde permite describir problemas de condiciones de borde conocidos o desconocidos. Por ende, solo se requiere una discretización de la superficie y no del volumen, reduciendo las dimensiones del problema en una dimensión. En consecuencia, el esfuerzo necesario para discretizar es bastante menor y las mallas son fáciles de generar y modificar.
+El método de elementos de borde ha surgido como una alternativa poderosa a los elementos finitos en los casos donde se requiere mayor precisión, como es el caso de concentración de esfuerzos, o donde el dominio se extiende al infinito. La característica más importante del método de elemento de bordes es que la metodología de formulación de las ecuaciones integrales de borde permite describir problemas de condiciones de borde conocidos o desconocidos. Por ende, solo se requiere una discretización de la superficie y no del volumen, reduciendo las dimensiones del problema en una dimensión. En consecuencia, el esfuerzo necesario para discretizar es bastante menor y las mallas son más simples de generar y modificar.
 El método de elementos de borde es particularmente ventajoso en el caso de problemas de dominio infinito o semi-infinito (exterior domain problems, en inglés).
 
 \subsubsection{Ventajas de BEM}
@@ -908,7 +978,7 @@ El método de elementos de borde es particularmente ventajoso en el caso de prob
 \begin{itemize}
 	\item \textit{Matemáticas compleja:} Utiliza matemáticas compleja, aunque no difícil de aprender. Por otro lado, los procedimientos numéricos de FEM pueden ser utilizados directamente a las soluciones de BEM.
 	\item \textit{Problemas no lineales:} En estos, el interior debe ser modelado, inevitablemente. 
-	\item \textit{Matrices complejas y no simétricas:} La matriz solución de los problemas de BEM es asimétrica y llena de coeficientes distintos a cero, mientras que en FEM la matriz es más grande, pero escasamente populada. Esto significa que en BEM, la matriz debe ser almacenada por completa en la memoria del computador. Aún asi, esto no es una gran desventaja debido a que para obtener el mismo nivel de precisión que en FEM, BEM requiere un menor número de nodos y elementos, como se mencionó anteriormente.
+	\item \textit{Matrices complejas y no simétricas:} La matriz solución de los problemas de BEM es asimétrica y llena de coeficientes distintos a cero, mientras que en FEM la matriz es más grande, pero escasamente populada. Esto significa que en BEM, la matriz debe ser almacenada por completa en la memoria del computador. Aún asi, esto no es una gran desventaja debido a que para obtener el mismo nivel de precisión que en FEM, BEM requiere un menor número de nodos y elementos, como se mencionó anteriormente, y existe una técnica de compresión de matrices llamado H-Matrix que permite operar sin tener que guardar las matrices.
 	\item \textit{Herramienta pobre para análisis de estructuras finas en tres dimensiones:} Esto debido al cuociente elevado entre superficie y volumen y la alta proximidad entre puntos nodales en la estructura. Esto provoca imprecisiones en las integraciones numéricas.
 \end{itemize}
 
@@ -959,7 +1029,7 @@ Finalmente esta el módulo \textit{LinAlg}, el cual provee interfaces para un am
 	\caption{Funciones que construyen los operadores de la biblioteca.}
 \end{figure}
 
-Para la resolución de problemas, BEM++ utiliza variados tipos de espacios:
+Para la resolución de problemas, BEM++ utiliza variados tipos de espacios de funciones que se utilizan en los elementos de la malla:
 
 \begin{itemize}
 	\item \textit{Discontinuous polynomial spaces} (DP), estos espacios de funciones son polinomios a través de cada elemento pero discontinuos entre elementos. El orden máximo es de 10.
@@ -1043,7 +1113,7 @@ $$I\approx\sum\limits_{i=1}^{N_1}\sum\limits_{j=1}^{N_2}g(x_i,y_j)\phi(y_j)\over
 
 Para el segundo caso es necesario tomar en cuenta la singularidad y se debe tomar particular atención. Es posible cambiar el orden de la cuadratura utilizada.
 
-Esta información, y bastante más, se puede encontrar en el sitio oficial del software, en su documentación.
+Esta información, y bastante más, se puede encontrar en el sitio oficial del software, en su documentación. \cite{paperBEMpp}
 
 \section{Presentación del problema a resolver}
 
@@ -1341,7 +1411,7 @@ La permitividad en 10.0 [GHz] es (-25589.1556519-131017.27392j),
 	\label{fig:permitividadhilo}
 \end{figure} 
 
-Ahora es necesario obtener el valor de la permeabilidad de los hilos para distintas frecuencias. Considerando aproximaciones lineales respecto a parámetros E,B y M (magnetización) y encontrando las soluciones a las ecuaciones de Maxwell, para lo cual no se entrará en detalle, se obtienen la siguiente expresion:
+Ahora es necesario obtener el valor de la permeabilidad de los hilos para distintas frecuencias. Considerando aproximaciones lineales respecto a parámetros E, B y M (magnetización) y encontrando las soluciones a las ecuaciones de Maxwell, lo cual se explica con mayor detalle en las referencias \cite{Wire_theory_2} y \cite{Wire_theory_1}, se obtiene la siguiente expresion:
 
 \begin{equation}
 	\tilde{\chi}=\frac{\omega_M(\omega_2-i\tau\omega)+4\pi\omega^2_M}{(\omega_1-i\tau\omega)(\omega_2+4\pi\omega_M-i\tau\omega)-\omega^2},
@@ -1359,7 +1429,7 @@ Se necesita saber entonces:
 \end{split}
 \end{equation}
 
-\noindent donde $\gamma$ es la constante giromagnética, $\tau$ es el parámetro de relajación, $H_{k}$ es ek campo de anisotropía, $H_{ex}$ es el campo magnético externo a lo largo del eje del hilo, $K$ es la constante de anisotropía, $\theta$ es el ángulo entre la magnetización estática $M_{0}$ y el eje del hilo.
+\noindent donde $\gamma$ es la constante giromagnética, $\tau$ es el parámetro de relajación, $H_{k}$ es ek campo de anisotropía, $H_{ex}$ es el campo magnético externo a lo largo del eje del hilo, $K$ es la constante de anisotropía, $\theta$ es el ángulo entre la magnetización estática $M_{0}$ y el eje del hilo. \cite{Wire_permeability}
 
 Una vez obtenidos estos valores, es posible comenzar a calcular la permeabilidad del hilo de la forma:
 
@@ -1641,7 +1711,7 @@ Se puede ver que en algunas zonas los valores son bastante similares, pero en ge
 
 \subsubsection{Caso 2}
 
-Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las del paper donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos. \cite{Wire_theory_2} Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% en diferentes condiciones de trabajo. \cite{Wire_theory_1}
+Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las de la publicación donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos \cite{Wire_theory_2}. Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% en diferentes condiciones de trabajo. \cite{Wire_theory_1}
 
 Los datos son:
 
@@ -1834,6 +1904,12 @@ Finalmente, es posible decir que, si bien la simulación de dispersión sobre lo
 	L. Liu, K.N. Rozanov and M. Abshinova
 	\textit{``Tunable properties of microwire composites at microwave frequency'',} 
 	Appl. Phys. A (2013) 110:275-279.		
+	
+	\bibitem{paperprofe}
+	Christopher D. Cooper, Jaydeep P. Bardhan, L.A. Barba
+	\textit{``A biomolecular electrostatics solver using Python, GPUs and boundary
+	elements that can handle solvent-filled cavities and Stern layers'',} 
+	Computer Physics Communications 185 (2014) 720-729.	
 	
 	\end{thebibliography}
 
