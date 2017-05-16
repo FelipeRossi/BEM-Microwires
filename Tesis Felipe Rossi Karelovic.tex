@@ -1,11 +1,12 @@
 %Tipo de documento
-\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt,letterpaper]{report}
 %Preámbulo
 \usepackage[utf8]{inputenc} %Codificación
 \usepackage[spanish]{babel}
 \usepackage{blindtext}
 \usepackage{courier}
 \usepackage{xcolor}
+\usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{float}
@@ -111,18 +112,18 @@
 \newpage\null\thispagestyle{empty}\newpage
 
 
-\section*{Agradecimientos}
+\chapter*{Agradecimientos}
 A mi familia por su apoyo constante e incondicional en cada paso que he dado en mi vida y en los duros años de carrera, dándome todas las herramientas necesarias para éstos. A mi profesor Christopher Cooper y a mi compañero y amigo Milan Ungerer, por su cooperación incansable y apoyo en la realización del presente trabajo y vida universitaria. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\section*{Resumen}
+\chapter*{Resumen}
 
 Los microhilos ferromagnéticos tienen propiedades magnéticas que varían en función de la tensión mecánica, por lo que se han presentado como una herramienta promisoria para el desarrollo de materiales inteligentes, capaces de entregar información del estado de tensiones internas. Gracias a esta variación de sus propiedades, es posible medir su cambio con algún campo externo, y asi establecer una relación directa. Sin embargo, las propiedades de permitividad y permeabilidad de los hilos están lejos de ser comprendidas a cabalidad, dificultando el uso de herramientas computacionales para su simulación. Sus valores dependen altamente de varios factores que se deben tener en cuenta y considerar, o en su defecto, establecer si pueden despreciarse. 
 
-El objetivo del presente trabajo es utilizar aproximaciones numéricas para la obtención de propiedades anteriormente señaladas (como lo son permeabilidad y permitividad). Una vez conocidos estos valores, se utilizarán en simulaciones computacionales y se compararán con resultados experimentales.
+El objetivo del presente trabajo es utilizar aproximaciones numéricas para la obtención de propiedades anteriormente señaladas (como lo son permeabilidad y permitividad). Una vez conocidos estos valores, utilizarlos en simulaciones computacionales y se compararán con resultados experimentales.
 
-Para su realización, se deberán estudiar las propiedades electromagnéticas de los microhilos en función de diferentes variables, como lo son frecuencia, tensión, campo externo, GMI, etc. Se implementará un código de resolución de acuerdo al método de elementos de borde con una modelación de un problema de dispersión de ondas electromagnéticas con las ecuaciones de Maxwell y Helmholtz. Se diseñarán mallas para el trabajo de los microhilos y su simulación y se utilizarán en el código para generar un protocolo numérico-experimental para determinar la permitividad y permeabilidad de los microhilos ferromagnéticos. Finalmente, se compararán los resultados con otros modelos y datos experimentales, dando cuenta de la validez de los modelos computacionales y las limitaciones presentes.
+Para su realización, se estudiaron las propiedades electromagnéticas de los microhilos en función de diferentes variables, como lo son frecuencia, tensión, campo externo, GMI (magneto impedancias gigantes), etc. Se implementó un código de resolución de acuerdo al método de elementos de borde con una modelación de un problema de dispersión de ondas electromagnéticas con las ecuaciones de Maxwell y Helmholtz. Se diseñaron mallas para el trabajo de los microhilos y su simulación y se utilizaron en el código para generar un protocolo numérico-experimental para determinar la permitividad y permeabilidad de los microhilos ferromagnéticos. Finalmente, se compararon los resultados con otros modelos y datos experimentales, dando cuenta de la validez de los modelos computacionales y las limitaciones presentes.
  \\
  \\
  \\
@@ -132,13 +133,13 @@ Para su realización, se deberán estudiar las propiedades electromagnéticas de
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\section*{Abstract}
+\chapter*{Abstract}
 
-Ferromagnetic microwires have magnetic properties that change due to mechanical stress, so they have been presented as a promising tool for the development of inteligent materials capable of providing information about the condition of internal stress. Thanks to this variation of those properties, it is posible to measure how it changes because of an external field, and thus, establish a direct relation. However, microwire properties like permeability and permittivity are far from being fully understood, making it difficult to use computational tools for its simulation. These values depend strongly of several factors that must be taken into account, or in some cases, decide if they can be neglected.
+Ferromagnetic microwires have magnetic properties that change due to mechanical stress, so they have been presented as a promising tool for the development of inteligent materials capable of providing information about the condition of internal stress. Thanks to this variation of those properties, it is posible to measure how it changes because of an external field, and thus, establish a direct relation. However, microwire properties like permeability and permittivity are far from being fully understood, making it difficult to use computational tools for its simulation. These values depend strongly of several factors that must be taken into account, or in some cases, neglected.
 
-The objective of this work is to use numerical approximations to obtain the previously mentioned properties (such as permittivity and permeability). Once these values are known, they will be used in computational simulations so they can be compared with experimental results. 
+The objective of this work is to use numerical approximations to estimate the permeability and permittivity of the microwires. Once these values were known, they were used in computational simulations so they can be compared with experimental results. 
 
-For its realization, the electromagnetic properties of the microwires must be studied according to several variables, such as frecuency, stress, external fields, GMI, etc. A computational code will be implemented using the Boundary Elements Method with the devolopment of a model containing an electromagnetic scattering problem with Maxwell and Helmholtz equations. Meshes will be designed for the microwires and its simulation, and will be used in the code to generate a numerical-experimental protocole to determine the permeabilidad and permittivity of the ferromagnetic microwires. Finally, the obtained results will be compared with other models and experimental data, 	establishing the validity of the computational methods and their limitations.
+For its realization, the electromagnetic properties of the microwires were studied according to several variables, such as frecuency, stress, external fields, GMI (giant magneto impedance), etc. We implemented a computational code using the Boundary Elements Method that numerically solves the Helmholtz equations to model an electromagnetic scattering problem.  Meshes were designed for the microwires and its simulation, and were used in the code to generate a numerical-experimental protocole to determine the permeability and permittivity of the ferromagnetic microwires. Finally, the obtained results were be compared with other models and experimental data, 	establishing the validity of the computational methods and their limitations.
  \\
  \\
  \\
@@ -148,7 +149,7 @@ For its realization, the electromagnetic properties of the microwires must be st
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\section*{Glosario}
+\chapter*{Glosario}
 
 \begin{itemize}
 	\item \textbf{Radiación electromagnética:} tipo de campo electromagnético variable, es decir, una combinación de campos eléctricos y magnéticos oscilantes, que se propagan a través del espacio transportando energía de un lugar a otro.
@@ -160,8 +161,8 @@ For its realization, the electromagnetic properties of the microwires must be st
 	\item \textbf{Microondas:} ondas electromagnéticas; generalmente de entre 300 [MHz] y 30 [GHz] de frecuencia.
 	\item \textbf{Anisotropía:} es la propiedad general de materia según las cualidades como: elasticidad, temperatura, conductividad, etc. Cuando se habla de anisotropía magnética, es la dependencia direccional con respecto a propiedades magnéticas.
 	\item \textbf{Impedancia:} es la resistencia de un circuito o material al flujo de una corriente eléctrica alterna.
-	\item \textbf{Impedancia magnética:} aparición de impedancia en un material debido al efecto causado por un campo magnético.
-	\item \textbf{Impedancia magnética gigante:} se define como una larga variación en la impedancia magnética que ocurre en un conductor suave que conduce una corriente alterna cuando este es sometido a un campo magnético externo.
+	\item \textbf{Impedancia magnética (o MI):} aparición de impedancia en un material debido al efecto causado por un campo magnético.
+	\item \textbf{Impedancia magnética gigante (o GMI):} se define como una larga variación en la impedancia magnética que ocurre en un conductor suave que conduce una corriente alterna cuando este es sometido a un campo magnético externo.
 	\item \textbf{Magnetosctricción:} propiedad de los materiales magnéticos que hace que estos cambien de forma al encontrarse en presencia de un campo magnético.
 	\item \textbf{Polarización:} es una propiedad de las ondas que pueden oscilar con más de una orientación. En una onda electromagnética, tanto el campo eléctrico y el campo magnético son oscilantes, pero en diferentes direcciones; ambas perpendiculares entre si y perpendiculares a la dirección de propagación de la onda.
 	\item \textbf{Efecto pelicular o "skin effect":} efecto que se da cuando la densidad de corriente no es la misma en todo el conductor y se observa que hay una mayor densidad de corriente en la superficie que en el centro, cuando se tiene corriente alterna.
@@ -193,18 +194,18 @@ For its realization, the electromagnetic properties of the microwires must be st
 \pagebreak
 \pagenumbering{arabic}
 
-\section{Introducción}
+\chapter{Introducción}
 
-Recientes avances tecnológicos e industriales en lo que concierne a sensores y dispositivos magnéticos, requieren materiales con propiedades magnéticas excepcionales. Como un fuerte candidato, los microhilos ferromagnéticos amorfos han sido estudio durante décadas debido a su propiedades de sensibilidad. Su respuesta electromagnética puede ser medida convenientemente debido a que, estableciendo una determinada composición química y tamaño, es posible tener un material amorfo sensible a los estímulos externos, e.g. campos magnéticos y estrés mecánico, sobre todo en un espectro de microondas. Estos efectos, proveen variadas aplicaciones, tales como absorción de microondas, monitoreo de salud estructural (debido a que las propiedades ferromagnéticas de los hilos se ven directamente afectadas con un esfuerzo aplicado), entre otras. 
+Recientes avances tecnológicos e industriales en lo que concierne a sensores y dispositivos magnéticos, requieren materiales con propiedades magnéticas excepcionales. Como un fuerte candidato, los microhilos ferromagnéticos amorfos han sido estudio durante décadas debido a su propiedades de sensibilidad. Su respuesta electromagnética puede ser medida convenientemente debido a que, estableciendo una determinada composición química y tamaño, es posible tener un material amorfo sensible a los estímulos externos, e.g. campos magnéticos y estrés mecánico, sobre todo en un espectro de microondas. Estos efectos, son de gran potencial en variadas aplicaciones, tales como absorción de microondas, monitoreo de salud estructural (debido a que las propiedades ferromagnéticas de los hilos se ven directamente afectadas con un esfuerzo aplicado), entre otras. 
 
 
-En general se les clasifica en microhilos basados en Fe y en Co, siendo estos dos los componentes que dan mejores propiedades electromagnéticas con las microondas incidentes. Se han hechos numerosos esfuerzos en fabricar hilos con componentes químicos diferentes para mejorar sus propiedades, pero probó ser muy costoso. 
+En general se les clasifica en microhilos basados en Fe y en Co, siendo estos dos los componentes que dan mejores propiedades electromagnéticas con las microondas incidentes. Se han hechos numerosos esfuerzos en fabricar hilos con componentes químicos diferentes para mejorar sus propiedades, pero probó ser muy costoso. \cite{costo} 
 
 
 Si bien los hilos proveen una buena sensibilidad magnética, existe un problema en cuanto a su uso, debido a que el diámetro de los hilos es de solo unas decenas de micras, lo que significa que son frágiles frente a fracturas, limitando sus aplicaciones. Es por lo anterior, que uno de los principales objetivos actuales es sintetizar microhilos pequeños, sin afectar sus propiedades magnéticas.
 
 
-Recientemente, se ha estado utilizando una técnica que consiste en posicionar los microhilos en un compuesto basado en polímeros, el cual a la vez permite mejorar el rendimiento de los hilos al aumentar su número y preservarlos de mejor manera en una matriz. Este método logra solucionar de buena forma el problema anteriormente mencionado.
+Recientemente, se ha estado utilizando una técnica que consiste en posicionar los microhilos en un compuesto basado en polímeros, el cual a la vez permite mejorar el rendimiento de los hilos al aumentar su número y preservarlos de mejor manera en una matriz. Este método logra solucionar de buena forma el problema anteriormente mencionado. \cite{costo}
 
 
 Aún así, el conocimiento actual respecto de los microhilos consiste únicamente en estudios empíricos, con ciertas propiedades y ciertos valores. Es por eso que se genera una limitante en cuanto a qué sucede cuando se van variando factores del experimento, como lo son permeabilidad y permitividad del hilo, dimensión del hilo, y sobre todo, la frecuencia de incidencia del campo magnético.
@@ -214,7 +215,7 @@ El objetivo del presente trabajo, es generar una herramienta analítica con apro
 	
 \pagebreak
 
-\section{Planteamiento del problema}
+\chapter{Planteamiento del problema}
 
 Como se mencionó anteriormente, el uso de microhilos para la medición de la variación de campos electromagnéticos es de gran utilidad para el presente ingenieril, permitiendo realizar numerosas aplicaciones, entre las cuales se destaca la medición de esfuerzos mecánicos. Teniendo esto en cuenta, se pretende estudiar un compósito que contenga numerosos hilos para su estudio y análisis. El campo electromagnético se hará pasar a través de este compósito de hilos como se muestra en la figura (\ref{fig: compositoproblema.png}).
 
@@ -228,7 +229,7 @@ Una vez que el campo atraviese el compósito, se verá afectado por los microhil
 
 Si bien lo mencionado anteriormente no representa mayor problema, este se genera en lo que respecta a las propiedades magnéticas de los microhilos y la capacidad computacional con la que se cuenta. Esto sucede porque la permitividad y permeabilidad, dos variables necesarias para la simulación, dependen fuertemente del material que compone al hilo, de la frecuencia a la que se está trabajando el campo electromagnético, de la dimensión del hilo, de estímulos externos, entre otras. Por lo tanto, es de suma dificultad poseer estos valores para el caso que se quiera estudiar. Se deben conocer estos valores tanto para los hilos como para el material del compósito. Es por eso que se requiere diseñar una herramienta que sea capaz de validar los valores que se han obtenido empíricamente, para poder así extrapolar a otras configuraciones y frecuencias, y así finalmente obtener el valor de estas propiedades para su uso.
  
-\subsection{Microhilos}
+\section{Microhilos}
 
 Los microhilos que se utilizarán y estudiarán, corresponden a un núcleo conformado por el material amorfo y magnético, principalmente compuesto de CoFeCrSiB, del cual un 70-80\% corresponde a FeCo, y una cobertura de vidrio, la cual no tiene gran influencia sobre el efecto generado en el campo electromagnético, pero si en la protección de los hilos en cuanto a corrosión.
 
@@ -250,7 +251,7 @@ La forma longitudinal de los microhilos determina además sus propiedades, las q
 	\label{fig: composito}
 \end{figure} 
 
-\subsection{Permeabilidad y Permitividad}
+\section{Permeabilidad y Permitividad}
 
 Los microhilos contienen importantes propiedades que determinan como se ve afectado el campo electromagnético irradiado sobre ellos. Las dos principales corresponden a la permeabilidad y permitividad magnética. 
 
@@ -273,9 +274,9 @@ Al igual que la permeabilidad, es común utilizarla como permitividad relativa:
 
 \noindent donde $\epsilon_{0} = 8,8541878176 \times 10^{-12} [F/m]$ corresponde a la permitividad del vacío.
 
-\subsection{Impedancia Magnética}
+\section{Impedancia Magnética}
 
-En el rango de frecuencias altas (hasta algunos GHz), el campo magnético que llega al hilo debe ser manejado en conjunto con el campo eléctrico, como se muestra en la Tabla \ref{fig: tablacampos}.
+Si bien el campo magnético y el campo eléctrico están acoplados, para el caso de scattering se deben manejar en conjunto, pero por separado, como se muestra en la Tabla \ref{fig: tablacampos}.
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.5]{tablaocampos.png}
@@ -283,7 +284,7 @@ En el rango de frecuencias altas (hasta algunos GHz), el campo magnético que ll
 	\label{fig: tablacampos}
 \end{figure} 
 
-Al tener distintas configuraciones de incidencia de campo y orientación de hilos, se genera un efecto importante llamado Impedancia Magnética Gigante o GMI. La GMI se define como una larga variación en la impedancia magnética que ocurre en un conductor suave que conduce una gran corriente alterna cuando este es sometido a un campo magnético externo. Esta corriente que se genera, produce un campo magnético circular en la superficie del microhilo, lo que modifica la corriente eléctrica, superponiéndose.
+Al tener distintas configuraciones de incidencia de campo y orientación de hilos, se genera un efecto importante llamado Impedancia Magnética Gigante o GMI. La GMI se define como una gran variación en la impedancia magnética que ocurre en un conductor suave que conduce una gran corriente alterna cuando este es sometido a un campo magnético externo. Esta corriente que se genera, produce un campo magnético circular en la superficie del microhilo, lo que modifica la corriente eléctrica, superponiéndose.
 Este fenómeno es causado por la dependencia de la permeabilidad del material con el campo magnético, la cual causa variaciones en la profundidad de penetración de las corrientes que fluyen por el objeto. La superposición concuerda con la solución a la ecuación de Maxwell para la densidad de corriente, que se explica en secciones posteriores. Este efecto se conoce también como ``skin effect''.
 
 \begin{figure}[H]
@@ -295,7 +296,7 @@ Este fenómeno es causado por la dependencia de la permeabilidad del material co
 
 Estos efectos deben ser tomados en consideración cuando se estudian las propiedades fundamentales de estos hilos, que para este caso en particular corresponden a la permeabilidad y permitividad del hilo, debido a que son capaces de modificarlas de manera abrupta.
 
-\subsection{Propiedades del compósito}
+\section{Propiedades del compósito}
 
 Una vez que se integran los microhilos al compósito, ya no se pueden tratar sus componentes por separado. Tanto el material del compósito como los hilos tienen sus propiedades, por lo que es necesario compactarlas en una sola geometría que represente de buena forma sus partes por separado. Es por eso que al estudiar un compósito se deja de hablar de permeabilidad y permitividad del o los hilos y se comienza a hablar de ``permeabilidad y permitividad efectiva'', la cual congrega todas las propiedades en una generalización.
 
@@ -306,7 +307,7 @@ Además, otra importante propiedad a considerar es la permeabilidad efectiva del
 Estas propiedades mencionadas no son constantes, y como se dijo anteiormente, dependen de numerosos factores. Para el cálculo de la variación del campo electromagnético aplicado en el compósito de microhilos, se necesitan las permeabilidades y permitividades básicas y efectivas, por lo que es de suma importancia contar con una herramienta para su cálculo. Es por eso que se intentará establecer un código computacional, como se mencionó antes, para lograr simular estos valores para distintas frecuencias y condiciones.
  
 
-\section{Ecuación integral de borde}
+\chapter{Ecuación integral de borde}
 
 
 Las ecuaciones de Maxwell son una herramienta fundamental para desarrollar el problema presentado debido al uso de campos electromagnéticos en las geometrías utilizadas. Es por esto que se debe conocer su funcionamiento y además el uso para este problema en particular. Las ecuaciones de Maxwell se presentan a continuación, donde \textbf{E} es el campo eléctrico y \textbf{B} es el campo magnético:
@@ -329,7 +330,7 @@ Las ecuaciones de Maxwell son una herramienta fundamental para desarrollar el pr
 \end{equation}
 \\
 
-La ecuación \ref{eq:Ley de Gauss} corresponde a la ``Ley de Gauss'', tambien conocida como ``teorema de Gauss'', la cual establece que el flujo de ciertos campos a través de una superficie cerrada es proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie. Esto se logra a través de una relación entre el campo eléctrico y la densidad de carga. El valor $\epsilon_0$ corresponde a la permitividad eléctrica del vacío, la cual se definió anteriormente.
+La ecuación \ref{eq:Ley de Gauss} corresponde a la ``Ley de Gauss'', la cual establece que el flujo de ciertos campos a través de una superficie cerrada es proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie. Esto se logra a través de una relación entre el campo eléctrico y la densidad de carga. El valor $\epsilon_0$ corresponde a la permitividad eléctrica del vacío, la cual se definió anteriormente.
 
 La ecuación \ref{eq:Maxwell no name} corresponde a la ``Ley de Gauss'' para campos magnéticos, en la cual se indica que la divergencia de estos campos es siempre 0.
 
@@ -405,7 +406,7 @@ $$c = \frac{1}{\sqrt{\mu_0\epsilon_0}} \left[\frac{m}{s}\right]$$
 \noindent la cual corresponde a una ecuación de onda que representa tanto la parte eléctrica como magnética y que será estudiada más adelante. 
 
 
-\subsection{Ecuación de Helmholtz}
+\section{Ecuación de Helmholtz}
 
 La ecuación de Helmholtz es de uso frecuente en problemas de la física que involucran ecuaciones diferenciales parciales tanto en espacio como tiempo. La ecuación, que representa una forma de la ecuación de onda independiente del tiempo, resulta de la separación de variables para reducir la complejidad del análisis. Es por esto, que se considerar la ecuación de onda \ref{eq: ecuacion onda} y se realizará una separación de variables asumiendo que la ecuación $u(r,t)$ es, en verdad, separable.
 
@@ -469,7 +470,7 @@ Análogamente, para el campo magnético se obtiene:
 
 Como se mencionó anteriormente, ahora se tiene una ecuación que únicamente depende de la posición, tanto para el campo magnético como para el campo eléctrico, dejando a un lado la variable tiempo.
 
-\subsection{Formulando una ecuación integral en el borde}
+\section{Formulando una ecuación integral en el borde}
 En primer lugar, se debe tener en consideración la condición de radiación de Sommerfield, en la cual se establece que ``las fuentes deben ser fuentes, no sumideros de energía. La energía que es irradiada desde la fuente debe continuar hasta el infinito, y ninguna energía que provenga del infinito debe irradiar hacia el campo''. Si la onda es armónica y el valor $k$ es mayor que cero, se define matemáticamente como:
 
 \begin{equation}
@@ -690,7 +691,7 @@ u_{inc}\\
 
 Es importante mencionar que si bien $D_{i]}$ y $D_{e}$ tienen signos contrarios, no se cancelan entre ellos debido a que cada uno posee un número de onda $k$ distinto.
 
-\subsection{Dispersión en múltiples objetos o Multiple Scattering}
+\section{Dispersión en múltiples objetos o Multiple Scattering}
 
 
 En la sección anterior, se llegó a ecuaciones que permitían calcular la dispersión en un objeto, debido a que el campo que llega a él se separa en lo que incide y lo que se dispersa, ya que respetando la condición de radiación de Sommerfield, no debiese llegar nuevamente al objeto ni modificar la fuente. Pero eso se cumple únicamente cuando existe una sola geometría en cuestión, lo que se aleja del problema real a resolver, debido a que en este no sólo se requiere que sean múltiples geometrías, si no que además se necesita que los microhilos se posicionen dentro de un compósito que los contendrá, lo que aumentará la dificultad de las expresiones y de su cálculo.
@@ -804,7 +805,7 @@ u_{inc}^1\\
 \end{equation} 
 
 
-\section{Software utilizado}
+\chapter{Software utilizado}
 
 Para el modelamiento del problema se requieren distintos software. Es importante mencionar además que estos fueron utilizados en el OS Linux 16.04, por lo que no se asegura compatibilidad con distintos sistemas operativos:
 
@@ -825,7 +826,7 @@ Para el modelamiento del problema se requieren distintos software. Es importante
 
 Es importane mencionar que el computador a ocupar posee 32 Gigabytes de Memoria RAM y 12 núcleos. Para las pruebas se utilizó el orden de cuadratura de 6 (por defecto), además, una tolerancia de $10^{-5}$ para la multiplicación matriz-vector a través de GMRES.
 
-\section{Modelación de las geometrías}
+\chapter{Modelación de las geometrías}
 
 
 Como se mencionó anteriormente, la modelación de estos hilos se hace mediante el software FreeCad, el cual permite hacer las distintas geometrías y generar una malla de ésta, a su vez suavizándola. El mallado se realiza con la función de Mefisto del software, y la suavización a través de una metodología de aproximación de Laplace.
@@ -892,9 +893,9 @@ Para comprobar lo anterior se utilizar el software MeshLab, el cual permite corr
 
 Una vez posicionados, se pueden utilizar las geometrías para el código y realizar las pruebas requeridas. Es importante mencionar que cada cambio en la geometría utilizada, implica repetir todo el proceso anterior en lo que es creación de geometría y malla y de revisión de factores que podrían influir.
 
-\subsection{Convergencia de las mallas.}
+\section{Convergencia de las mallas.}
 
-Una aspecto importante para tener en consideración cuando se trabaja con simulaciones computacionales es la convergencia de las mallas.
+Una aspecto importante para tener en consideración cuando se trabaja con simulaciones computacionales es la convergencia de las mallas. Al refinar una malla (elementos mas pequeños), la solución tiende hacia la solución exacta. Estos elementos están definidos por nodos y funciones de interpolación y las ecuaciones están escritas para cada elemento. Existen criterios para comprobar la convergencia, que si bien no permiten conocer el error, garantizan la tendencia hacia una solución mejor.
 
 La extrapolación de Richardson es una técnica fundamental para comprobar lo anterior, utilizando soluciones con distintas mallas (mallas finas y mallas gruesas). Para ser correctamente aplicado, debe estar convergiendo al valor exacto a un ritmo constante y se puede estimar el valor constante de la forma:
 
@@ -904,7 +905,7 @@ donde $f_{1]}$ es la solución de la malla fina y $f_{2}$ la de la malla gruesa,
 
 $$r = h_2/h_1=h_3/h_2$$. 
 
-Para que la convergencia sea correcta, se requiere que el órden sea igual al esperado. En este caso, se tienen funciones constante para condiciones de frontera de Neumann, por lo que se espera un órden $1$.
+Para que la convergencia sea correcta, se requiere que el órden sea igual al esperado. En este caso, se tienen funciones constante para condiciones de frontera de Neumann, por lo que se espera un órden de convergencia $(p)$ de $1$.
 
 Se necesitan al menos tres mallas para su cálculo, y ordenando las ecuaciones anteriores, se calcula así:
 
@@ -942,6 +943,8 @@ Para estos valores, se obtiene un órden de convergencia de $1.07$, lo cual se a
 \textbf{Caso 2:}
 \vspace{3mm}
 
+Tres mallas con los hilos utilizados en los experimentos ($1 [cm]$ de largo), en la misma matriz anterior. En este caso, el largo de los hilos y su reducido diámetro, provoca que los elementos de la malla sean alargados y deformes. El número de elementos por malla es:
+
 \begin{itemize}
 	\item $n_1 = 73628$
 	\item $n_2 = 19242$
@@ -956,17 +959,17 @@ Se obtiene un ratio de refinamiento de $0.275$ y los valores del módulo del cam
 	\item $f_3 = 1.14118261$
 \end{itemize}
 
-Para estos valores, se obtiene un órden de convergencia de $4.32$, el cual se aleja bastante del valor esperado. Este error se puede deber a tolerancias de aproximaciónes establecidas y, principalmente, a que debido al largo de los microhilos, sus elementos presentan una forma triangular alargada, dejándo de ser regulares, alterándo los resultados. 
+Para estos valores, se obtiene un órden de convergencia de $4.32$, el cual se aleja bastante del valor esperado. Este error se puede deber a tolerancias de aproximaciónes establecidas y, principalmente, a que debido al largo de los microhilos, sus elementos presentan una forma triangular alargada, dejándo de ser regulares, alterándo los resultados. A pesar de que no se ve el órden de convergencia esperado, la simulación sí está convergiendo a un valor, pero debido a que en la discretización a través de H-Matrix se utiliza una tolerancia de $10^{-5}$ y en la resolución de GMRES una tolerancia de $10^{-8}$, se podrían generar errores que cambien el valor del órden. Para la tolerancia del H-Matrix, no es viable disminuir esta, ya que aumenta considerablemente los recursos computacionales necesarios para la resolución. 
 
 Para solucionar lo anterior, se requeriría el uso de hilos con bastantes más elementos, lo cual para uso pŕactica del trabajo no se puede, debido al alto requerimiento de capacidad computacional que no se tiene.
 
-\section{Método de elementos de borde y BEM++}
-\subsection{BEM}
+\chapter{Método de elementos de borde y BEM++}
+\section{BEM}
 
 El método de elementos de borde ha surgido como una alternativa poderosa a los elementos finitos en los casos donde se requiere mayor precisión, como es el caso de concentración de esfuerzos, o donde el dominio se extiende al infinito. La característica más importante del método de elemento de bordes es que la metodología de formulación de las ecuaciones integrales de borde permite describir problemas de condiciones de borde conocidos o desconocidos. Por ende, solo se requiere una discretización de la superficie y no del volumen, reduciendo las dimensiones del problema en una dimensión. En consecuencia, el esfuerzo necesario para discretizar es bastante menor y las mallas son más simples de generar y modificar.
 El método de elementos de borde es particularmente ventajoso en el caso de problemas de dominio infinito o semi-infinito (exterior domain problems, en inglés).
 
-\subsubsection{Ventajas de BEM}
+\subsection{Ventajas de BEM}
 \begin{itemize}
 	\item \textit{Menor tiempo de preparación de la información:} Esto es un resultado directo del hecho de modelar únicamente la superficie. Por lo tanto, el tiempo de preparación y de revisión de la información del problema es menor. \\
 	\item \textit{Alta resolución de esfuerzos:} Los esfuerzos son muy precisos debido a que no hay mayor aproximación impuesta en la solución de los puntos interiores, por lo tanto, la solución es exacta y completamente continua en el interior del dominio.\\
@@ -974,7 +977,7 @@ El método de elementos de borde es particularmente ventajoso en el caso de prob
 	\item \textit{Menos información no deseada:} En la mayoría de los problemas ingenieriles, la peor situación (como fracturas, concentración de esfuerzos, choques térmicos, etc.) usualmente ocurre en las superficies. Por lo que modelar un cuerpo completo en tres dimensiones y calcular la información requerida en cada nodo del problema es bastante ineficiente. Usar un método de bordes disminuye los recursos necesarios, y ya que los puntos internos de BEM son opcionales, se hace énfasis en la parte querida y no en todo el interior.
 \end{itemize}
 
-\subsubsection{Desventajas de BEM}
+\subsection{Desventajas de BEM}
 \begin{itemize}
 	\item \textit{Matemáticas compleja:} Utiliza matemáticas compleja, aunque no difícil de aprender. Por otro lado, los procedimientos numéricos de FEM pueden ser utilizados directamente a las soluciones de BEM.
 	\item \textit{Problemas no lineales:} En estos, el interior debe ser modelado, inevitablemente. 
@@ -982,7 +985,7 @@ El método de elementos de borde es particularmente ventajoso en el caso de prob
 	\item \textit{Herramienta pobre para análisis de estructuras finas en tres dimensiones:} Esto debido al cuociente elevado entre superficie y volumen y la alta proximidad entre puntos nodales en la estructura. Esto provoca imprecisiones en las integraciones numéricas.
 \end{itemize}
 
-\subsubsection{Estructuración de BEM}
+\subsection{Estructuración de BEM}
 Una aplicación típica del método en cuestión se da de la siguiente áorma, la cual se justificará con ejemplos mas adelante:
 
 \begin{itemize}
@@ -996,7 +999,7 @@ Una aplicación típica del método en cuestión se da de la siguiente áorma, l
 \end{itemize}
 
 
-\subsection{Utilizando BEM++ como biblioteca}
+\section{Utilizando BEM++ como biblioteca}
 Como se mencionó, BEM++ es una biblioteca de C++ con uso de python. La biblioteca esta compuesta de cinco grandes partes, esquematizadas en la figura \ref{bempp}. 
 
 \begin{figure}[H]
@@ -1036,7 +1039,7 @@ Para la resolución de problemas, BEM++ utiliza variados tipos de espacios de fu
 	\item \textit{Polynomial spaces} (P), estos espacios de funciones son polinomios a través de cada elemento y continuos entre elementos. El orden mínimo es 0. El máximo es 10.
 	\item \textit{Polynomial spaces on barycentric grids} (B-P), Estos son los mismos espacios que los \textit{Polynomial spaces} y el mismo número de grados de libertad, pero esta vez el refinamiento de la malla es baricéntrico. El único orden permito actualmente es de 1.
 	\item \textit{Discontinuous polynomial spaces on barycentric grids} (B-DP), similar al espacio B-P pero los polinomios de los espacios de funciones son discontinuos entre elementos. Igualmente solo se puede utilizar orden 1.
-	\item \textit{Dual spaces of constant functions} (DUAL), este es un espacio de funciones constantes definidas en una malla dual.
+	\item \textit{Dual spaces of constant functions} (DUAL), este es un espacio de funciones constantes definidas en una malla dual. La existencia de un espacio vectorial 'dual' refleja de una manera abstracta la relación entre los vectores fila $(1 \times n)$ y los vectores columna $(n \times 1)$ de una matriz. 
 	\item \textit{Raviart-Thomas Vector Space} (RT), estos son espacios de funciones de Raviart-Thomas. Estos son necesarios para operadores integrales en scattering electromagnético. Sólo existen de orden 0.
 \end{itemize}
 
@@ -1115,7 +1118,7 @@ Para el segundo caso es necesario tomar en cuenta la singularidad y se debe toma
 
 Esta información, y bastante más, se puede encontrar en el sitio oficial del software, en su documentación. \cite{paperBEMpp}
 
-\section{Presentación del problema a resolver}
+\chapter{Presentación del problema a resolver}
 
 Como se mencionó anteriormente, para la resolución y estudio de campos electromagnéticos irradiadios sobre compósitos con microhilos en la frecuencia de microondas, se requieren numerosas propiedades que son difíciles de obtener experimentalmente, por lo que es de gran ayuda una herramienta computacional que permita aproximar estos valores de acuerdo a una aproximación matemática en base a los resultados empíricos existentes. En algunas publicaciones científicas se pueden encontrar valores con respecto a las permeabilidades y permitividades efectivas de ciertos compósitos, los cuales son válidos únicamente para cierta configuración y proporción de hilo/compósito. Gracias a valores empíricos se establecerá una herramienta que permita calcular las permeabilidades y permitividades de los hilos en cuestión, para luego comprobar que el código desarrollado sea válido para la resolución de estos problemas. Luego de obtener las propiedades de los hilos, se utilizará el compósito sin hilos, con sus propiedades efectivas, y se comparará con las básicas por separado en el compósito con hilos.
 
@@ -1128,7 +1131,7 @@ En el presente trabajo se trabajará con 3 y 6 hilos, de $15$ y $10 [\mu m]$ de 
 	\caption{Disposición de los microhilos dentro del compósito.}
 \end{figure}
 
-\subsection{Formulación de las ecuaciones}
+\section{Formulación de las ecuaciones}
 
 Uno de las variables más importantes cuando se considera dispersión de una onda sobre un objeto, es el índice de refracción, el cual corresponde al cociente de la velocidad de un fenómeno ondulatorio como luz o sonido en el de un medio de referencia, respecto a la velocidad de fase ($v_{p}$) en dicho medio: 
 
@@ -1235,11 +1238,11 @@ La matriz se presenta a continuación:
 
 Se necesita entonces encontrar un método para obtener la permitividad y permeabilidad de los hilos. Para esto, se realizará un proceso en el cual desde valores de las permitividades efectivas del compósito se obtendrán los valores del hilo (análogamente para la permeabilidad), y luego se intentará comprobar su validez en base al código computacional que se presentará más adelante.
 
-\subsubsection{Obtención de propiedades de los hilos}
+\subsection{Obtención de propiedades de los hilos}
 
 En compósitos electrodinámicos, los microhilos conductores pueden generar propiedades de polarización inusual, como se mencionó anteriormente, en respuesta a radiación de distintas frecuencias. Como se propuso, los materiales serán tratados como un medio continuo, al menos en el rango del campo de radiación con una permitividad efectiva $\epsilon_{ef}$. 
 
-La habilidad de estos microhilos para manipular la radiación electromagnética puede ser visto como una consecuencia de la dispersión de $\epsilon_{ef}$. Estos materiales en el compósito demuestran la dispersión de la permitividad con frecuencias determinadas por la antena de resonancia $f_{res,n}= c(2n-1)/(2l\sqrt{\epsilon})$, donde $c$ es la velocidad de la luz, $l$ es el largo de los hilos, $\epsilon$ es la permitividad de la matriz y $n$ es un número entero. Las concentraciones volumétricas de hilos $p$ deben cumplir con el límite $p<p_{l} \sim 2a/l$, donde a es el radio del microhilo. La forma general de la permitividad se da de la siguiente manera:
+La habilidad de estos microhilos para manipular la radiación electromagnética puede ser visto como una consecuencia de la dispersión de $\epsilon_{ef}$. Estos materiales en el compósito demuestran la dispersión de la permitividad con frecuencias determinadas por la antena de resonancia $f_{res,n}= c(2n-1)/(2l\sqrt{\epsilon})$, donde $c$ es la velocidad de la luz, $l$ es el largo de los hilos, $\epsilon$ es la permitividad de la matriz y $n$ es un número entero. Las concentraciones volumétricas de hilos $p$ deben cumplir con el límite $p<p_{l} \sim 2a/l$, donde a es el radio del microhilo. La forma general de la permitividad se da de la siguiente manera \cite{Wire_theory_2}:
 
 \begin{equation}
 \epsilon_{ef} (w)=\epsilon + 4 \pi p \sum_{n=1}^{\inf} \frac{A_{n}}{(w_{res,n}^2-w^2)-iw\Gamma_{n}}, 
@@ -1521,7 +1524,7 @@ El código anterior entrega un gráfico de la permeabilidad del hilo en las dist
 
 Teniendo estos valores, se procede al cálculo de los campos involucrados.
 
-\subsection{Utilización del código para la resolución}
+\section{Utilización del código para la resolución}
 
 Se explicará paso por paso el proceso a seguir para la verificación de la herramienta. En primer lugar, el código presenta una ventana de datos de entrada:
 
@@ -1597,9 +1600,9 @@ Se reemplaza la solución del sistema de ecuaciones en las ecuaciones
 
 \noindent las cuales se obtienen con el uso de operadores en la ecuación (\ref{ecuacionoperadores}), y se obtiene el valor del campo utilizado en el lugar que se propuso, en este caso  1 [cm] del compósito.
 
-\subsection{Entrada de datos y resultados}
+\section{Entrada de datos y resultados}
 
-\subsubsection{Caso 1}
+\subsection{Caso 1}
 
 Se ingresan los datos necesarios, que para el primer caso corresponde a una matriz con 3 hilos de 15 $[\mu m]$ de diámetro y una proporción de 0,0022 \%, como se explicó al principio del trabajo, y utilizando valores de los gráficos se ingresan:
 
@@ -1609,11 +1612,36 @@ Se ingresan los datos necesarios, que para el primer caso corresponde a una matr
 \end{itemize}
 \noindent con los valores:
 
-\begin{figure}[H]
-	\centering\includegraphics[scale=0.6]{datos1.png}\\
-	\caption{Datos de entrada para el primer caso de estudio.}
-	\label{fig:datos1}
-\end{figure} 
+\begin{table}[H]
+	\centering
+	\caption{Datos de entrada para el primer caso.}
+	\label{tabla0l}
+	\begin{tabular}{@{}|c|c|c|c|c|c|@{}}
+		\toprule
+		\textbf{Hilos} & \textbf{Frec {[}GHz{]}} & \textbf{Mu Medio} & \textbf{Eps Medio} & \textbf{Mu Hilo}  & \textbf{Eps Hilo}         \\ \midrule
+		3              & 1                       & 1.                & 2.25               & -12.9385+77.287j  & 2196055.908-315228.533j   \\ \midrule
+		0              & 1                       & 1.                & 60-10j             &                   &                           \\ \midrule
+		3              & 2                       & 1.                & 2.25               & -12.3101+34.4641j & 2544267.777-1444708.3853j \\ \midrule
+		0              & 2                       & 1.                & -4-130j            &                   &                           \\ \midrule
+		3              & 3                       & 1.                & 2.25               & -10.315+19.5233j  & 558519.311-2828049.4349j  \\ \midrule
+		0              & 3                       & 1.                & -25-15j            &                   &                           \\ \midrule
+		3              & 4                       & 1.                & 2.25               & -8.2736+12.16155j & -61935.978-1637980.278j   \\ \midrule
+		0              & 4                       & 1.                & -12-7j             &                   &                           \\ \midrule
+		3              & 5                       & 1.                & 2.25               & -2.9214+0.5895j   & 82629.268-200138.221j     \\ \midrule
+		0              & 5                       & 1.                & -5j                &                   &                           \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+
+
+
+%\begin{figure}[H]
+%	\centering\includegraphics[scale=0.6]{datos1.png}\\
+%	\caption{Datos de entrada para el primer caso de estudio.}
+%	\label{fig:datos1}
+%\end{figure} 
 
 
 Cuando se utiliza el código una vez,para una sola frecuencia, se obtiene algo de la forma:
@@ -1634,16 +1662,43 @@ Valor del campo en receptor: [ 0,47456856 + 1,13788863j]
 
 Ahora, si se realiza lo mismo para todas, se tendrán valores para las demás frecuencias de la forma:
 
-\begin{figure}[H]
-	\centering\includegraphics[scale=0.6]{salida1.png}\\
+\begin{table}[H]
+	\centering
 	\caption{Datos de salida para el caso de estudio número 1.}
-	\label{fig:salida1}
-\end{figure} 
+	\label{tabla1}
+	\begin{tabular}{@{}|c|c|c|c|c|c|@{}}
+		\toprule
+		\textbf{Hilos} & \textbf{Valor Campo {[}N/C{]}} & \textbf{Frec {[}GHz{]}} & \textbf{Iteraciones} & \textbf{Tamaño} & \textbf{Módulo {[}N/C{]}} \\ \midrule
+		3              & 1.24002386+0.26239859j         & 1                       & 351                  & 90086           & 1,2674826206              \\ \midrule
+		0              & 1.02814656+0.21169827j         & 1                       & 7                    & 70988           & 1,0497149643              \\ \midrule
+		3              & 1.16671322+0.52509186j         & 2                       & 299                  & 90086           & 1,2794300290              \\ \midrule
+		0              & 0.81213063+0.09016474j         & 2                       & 22                   & 70988           & 0,8171204566              \\ \midrule
+		3              & 1.03723591+0.77003549j         & 3                       & 1411                 & 43466           & 1,2918254483              \\ \midrule
+		0              & 0.72775361+0.45483694j         & 3                       & 15                   & 24368           & 0,8581969231              \\ \midrule
+		3              & 0.85449386+0.9907532j          & 4                       & 520                  & 43466           & 1,30833927560             \\ \midrule
+		0              & 0.62352363+0.60666965j         & 4                       & 25                   & 24368           & 0,8699596435              \\ \midrule
+		3              & 0.62756095+1.16782432j         & 5                       & 778                  & 90086           & 1,2264354771              \\ \midrule
+		0              & 0.57527077+0.7998023j          & 5                       & 7                    & 70988           & 1,0659627137              \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+
+
+
+%\begin{figure}[H]
+%	\centering\includegraphics[scale=0.6]{salida1.png}\\
+%	\caption{Datos de salida para el caso de estudio número 1.}
+%	\label{fig:salida1}
+%\end{figure} 
 
 
 Estos valores corresponden al campo medido a 1 $[cm]$ del compósito, con 3 hilos dentro de la matriz, y tomando cada componente por separado, utilizando las ya obtenidas anteriormente propiedades de los hilos.
 
-Como se explicó, la idea es compara el campo obtenido con hilos con el campo efectivo, para ver su semejanza. A continuación se presentan los gráficos comparativos del caso:
+Como se explicó, la idea es comparar el campo obtenido con hilos con el campo efectivo, para ver su semejanza. Esto significa que en primera instancia, se utilizó un compósito con hilos, usando sus propiedades individuales, para a continuación utilizar los valores efectivos de varios hilos en un compósito vacío, obtenidos de publicaciones con datos experimentales \cite{Wire_theory_1} \cite{Wire_theory_2} y obtener el mismo campo electromagnético para ambos casos.
+
+ A continuación se presentan los gráficos comparativos del caso:
 
 \begin{figure}[H]
 	\centering\includegraphics[scale=0.6]{r1a.png}\\
@@ -1709,9 +1764,9 @@ Se puede ver que en algunas zonas los valores son bastante similares, pero en ge
 
 
 
-\subsubsection{Caso 2}
+\subsection{Caso 2}
 
-Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las de la publicación donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos \cite{Wire_theory_2}. Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% en diferentes condiciones de trabajo. \cite{Wire_theory_1}
+Los valores obtenidos anteriormente del campo fueron comprobados con datos y condiciones similares a las de la publicación donde se encontraba información sobre como obtener permeabilidad y permitividad de los hilos \cite{Wire_theory_2}. Es por eso, que ahora se cambiarán algunas condiciones del problema, y se realizarán los mismos procedimientos anteriores para 6 hilos de 10 $[\mu m]$ de diámetro y una proporción de 0,01 \% en diferentes condiciones de trabajo. \cite{Wire_theory_1} El objetivo de esto, es comprobar si la documentación obtenida es extrapolable a diferentes condiciones de trabajo, como lo son tamaños de los hilos, concentración volumética y medio contenedor.
 
 Los datos son:
 
@@ -1722,11 +1777,52 @@ Los datos son:
 
 con las condiciones:
 
-\begin{figure}[H]
-	\centering\includegraphics[scale=0.6]{datos2.png}\\
+\begin{table}[H]
+	\centering
 	\caption{Datos de entrada para el segundo caso de estudio.}
-	\label{fig:datos2}
-\end{figure} 
+	\label{tabla2}
+	\begin{tabular}{@{}|c|c|c|c|c|c|@{}}
+		\toprule
+		\textbf{Hilos} & \textbf{Frec {[}GHz{]}} & \textbf{Mu Medio} & \textbf{Eps Medio} & \textbf{Mu Hilo}   & \textbf{Eps Hilo}       \\ \midrule
+		6              & 4 Ghz                   & 1                 & 16                 & -21.94+7,22j       & 400430.875-1139694.314j \\ \midrule
+		0              & 4 Ghz                   & 1                 & -15-120j           &                    &                         \\ \midrule
+		6              & 5 Ghz                   & 1                 & 16                 & -14.098+3.87j      & -204325.42-875821.98j   \\ \midrule
+		0              & 5 Ghz                   & 1                 & -30-50j            &                    &                         \\ \midrule
+		6              & 6 Ghz                   & 1                 & 16                 & -9.648+2.33j       & -270671.57-482813.69j   \\ \midrule
+		0              & 6 Ghz                   & 1                 & -15-25j            &                    &                         \\ \midrule
+		6              & 7 Ghz                   & 1                 & 16                 & -6.896+1.52j       & -178998.88-327148.93j   \\ \midrule
+		0              & 7 Ghz                   & 1                 & -5.-18.j           &                    &                         \\ \midrule
+		6              & 8 Ghz                   & 1                 & 16                 & -5.083+1.061j      & -156531.18-224024.14j   \\ \midrule
+		0              & 8 Ghz                   & 1                 & -12j               &                    &                         \\ \midrule
+		6              & 9 Ghz                   & 1                 & 16                 & -3.8265+0.775j     & -94874.79-167197.24j    \\ \midrule
+		0              & 9 Ghz                   & 1                 & 5-10j              &                    &                         \\ \midrule
+		6              & 10 Ghz                  & 1                 & 16                 & -2.921+0.589j      & -25589.156-131017.27j   \\ \midrule
+		0              & 10 Ghz                  & 1                 & 10-10j             &                    &                         \\ \midrule
+		6              & 11 Ghz                  & 1                 & 16                 & -2.2481+0.46247j   & -57515.684-135643.732j  \\ \midrule
+		0              & 11 Ghz                  & 1                 & 8-8j               &                    &                         \\ \midrule
+		6              & 12 GHZ                  & 1                 & 16                 & -1.734+0.37j       & -87641.359-104633.972j  \\ \midrule
+		0              & 12 GHZ                  & 1                 & 8-5j               &                    &                         \\ \midrule
+		6              & 13 Ghz                  & 1                 & 16                 & -1.3326+0.3068j    & -124678.719-54409.482j  \\ \midrule
+		0              & 13 Ghz                  & 1                 & 8-2j               &                    &                         \\ \midrule
+		6              & 14 Ghz                  & 1                 & 16                 & -1.01342+0.257j    & -135299.68-67014.31j    \\ \midrule
+		0              & 14 Ghz                  & 1                 & 8-2j               &                    &                         \\ \midrule
+		6              & 3 Ghz                   & 1                 & 16                 & -37.473421+15.967j & 795285.0703-722452.127j \\ \midrule
+		0              & 3 Ghz                   & 1                 & 90-100j            &                    &                         \\ \midrule
+		6              & 2 Ghz                   & 1                 & 16                 & -73.225+46.4757j   & 893285.991 -239829.128j \\ \midrule
+		0              & 2 Ghz                   & 1                 & 115-30j            &                    &                         \\ \midrule
+		6              & 1 Ghz                   & 1                 & 16                 & -157.0201+217.915j & 771953.1786-57274.995j  \\ \midrule
+		0              & 1 Ghz                   & 1                 & 95-6j              &                    &                         \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+
+%\begin{figure}[H]
+%	\centering\includegraphics[scale=0.6]{datos2.png}\\
+%	\caption{Datos de entrada para el segundo caso de estudio.}
+%	\label{fig:datos2}
+%\end{figure} 
 
 
 Para lo cual en una sola frecuencia se obtiene:
@@ -1748,11 +1844,52 @@ Valor del campo en receptor: [-1.06694707-0.05291927j],
 
 Los valores de campo obtenidos como resultado se presentan a continuación:
 
-\begin{figure}[H]
-	\centering\includegraphics[scale=0.6]{salida2.png}\\
+\begin{table}[H]
+	\centering
 	\caption{Datos de salida para el segundo caso de estudio.}
-	\label{fig:salida2}
-\end{figure} 
+	\label{tabla3}
+	\begin{tabular}{@{}|c|c|c|c|c|c|@{}}
+		\toprule
+		\textbf{Hilos} & \textbf{Frec {[}GHz{]}} & \textbf{Mu Medio} & \textbf{Eps Medio} & \textbf{Mu Hilo}   & \textbf{Eps Hilo}       \\ \midrule
+		6              & 4 Ghz                   & 1                 & 16                 & -21.94+7,22j       & 400430.875-1139694.314j \\ \midrule
+		0              & 4 Ghz                   & 1                 & -15-120j           &                    &                         \\ \midrule
+		6              & 5 Ghz                   & 1                 & 16                 & -14.098+3.87j      & -204325.42-875821.98j   \\ \midrule
+		0              & 5 Ghz                   & 1                 & -30-50j            &                    &                         \\ \midrule
+		6              & 6 Ghz                   & 1                 & 16                 & -9.648+2.33j       & -270671.57-482813.69j   \\ \midrule
+		0              & 6 Ghz                   & 1                 & -15-25j            &                    &                         \\ \midrule
+		6              & 7 Ghz                   & 1                 & 16                 & -6.896+1.52j       & -178998.88-327148.93j   \\ \midrule
+		0              & 7 Ghz                   & 1                 & -5.-18.j           &                    &                         \\ \midrule
+		6              & 8 Ghz                   & 1                 & 16                 & -5.083+1.061j      & -156531.18-224024.14j   \\ \midrule
+		0              & 8 Ghz                   & 1                 & -12j               &                    &                         \\ \midrule
+		6              & 9 Ghz                   & 1                 & 16                 & -3.8265+0.775j     & -94874.79-167197.24j    \\ \midrule
+		0              & 9 Ghz                   & 1                 & 5-10j              &                    &                         \\ \midrule
+		6              & 10 Ghz                  & 1                 & 16                 & -2.921+0.589j      & -25589.156-131017.27j   \\ \midrule
+		0              & 10 Ghz                  & 1                 & 10-10j             &                    &                         \\ \midrule
+		6              & 11 Ghz                  & 1                 & 16                 & -2.2481+0.46247j   & -57515.684-135643.732j  \\ \midrule
+		0              & 11 Ghz                  & 1                 & 8-8j               &                    &                         \\ \midrule
+		6              & 12 GHZ                  & 1                 & 16                 & -1.734+0.37j       & -87641.359-104633.972j  \\ \midrule
+		0              & 12 GHZ                  & 1                 & 8-5j               &                    &                         \\ \midrule
+		6              & 13 Ghz                  & 1                 & 16                 & -1.3326+0.3068j    & -124678.719-54409.482j  \\ \midrule
+		0              & 13 Ghz                  & 1                 & 8-2j               &                    &                         \\ \midrule
+		6              & 14 Ghz                  & 1                 & 16                 & -1.01342+0.257j    & -135299.68-67014.31j    \\ \midrule
+		0              & 14 Ghz                  & 1                 & 8-2j               &                    &                         \\ \midrule
+		6              & 3 Ghz                   & 1                 & 16                 & -37.473421+15.967j & 795285.0703-722452.127j \\ \midrule
+		0              & 3 Ghz                   & 1                 & 90-100j            &                    &                         \\ \midrule
+		6              & 2 Ghz                   & 1                 & 16                 & -73.225+46.4757j   & 893285.991 -239829.128j \\ \midrule
+		0              & 2 Ghz                   & 1                 & 115-30j            &                    &                         \\ \midrule
+		6              & 1 Ghz                   & 1                 & 16                 & -157.0201+217.915j & 771953.1786-57274.995j  \\ \midrule
+		0              & 1 Ghz                   & 1                 & 95-6j              &                    &                         \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+
+%\begin{figure}[H]
+%	\centering\includegraphics[scale=0.6]{salida2.png}\\
+%	\caption{Datos de salida para el segundo caso de estudio.}
+%	\label{fig:salida2}
+%\end{figure} 
 
 Nuevamente es necesario realizar la comparación entre el compósito con hilos y el compósito sin hilos, por lo que se procede a realizar los gráficos, anteriormente utilizados, para este caso:
 
@@ -1808,7 +1945,7 @@ Nuevamente es necesario realizar la comparación entre el compósito con hilos y
 Como se puede ver, los valores son bastante similares para los módulos en los casos de mayor frecuencia, obteniéndose variaciones menores a un 5 \%. Para el caso de frecuencias bajas, se obtienen las variaciones más altas, las cuales se podrían deber a que coinciden con los valores imaginarios de permitividad del hilo más altos.
 
 
-\section{Análisis y conclusiones} \label{sec:Analisis y conclusiones}
+\chapter{Análisis y conclusiones} \label{sec:Analisis y conclusiones}
 
 En el presente se comentó la utilización de microhilos para la medición de esfuerzos mecánicos en aplicaciones de ingeniería. Se establecieron formulaciones matemáticas para su desarrollo  y se diseño un código computacional para el cálculo de las propiedaes más importantes de los microhilos, como lo son la permeabilidad y la permitividad. En la sección anterior se realizaron pruebas de validez para el código computacional desarrollado. 
 
@@ -1832,6 +1969,12 @@ Finalmente, es posible decir que, si bien la simulación de dispersión sobre lo
 
 
 \begin{thebibliography}{9}
+
+	\bibitem{costo}
+	Faxiang Qin, Hua-Xin Peng
+	\textit{``Ferromagnetic microwires enabled multifunctional composite materials'',} 
+	Progress in Materials Science 58 (2013) 183–259.
+
 	\bibitem{Griffiths} 
 	David J. Griffiths. 
 	\textit{Introduction to Electrodynamics}. 
@@ -1911,6 +2054,9 @@ Finalmente, es posible decir que, si bien la simulación de dispersión sobre lo
 	elements that can handle solvent-filled cavities and Stern layers'',} 
 	Computer Physics Communications 185 (2014) 720-729.	
 	
+	
+	
+		
 	\end{thebibliography}
 
 
